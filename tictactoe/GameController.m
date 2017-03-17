@@ -9,7 +9,7 @@
 #import "GameController.h"
 #import "Game.h"
 
-@interface GameController () <SingleGameDelegate, WatchGameDelegate> {
+@interface GameController () <SingleGameDelegate, WatchGameDelegate, NetworkGameDelegate> {
     Game *game ;
     NSArray<UIButton *> *cells ;
     NSArray<UIImage *> *imgs ;
@@ -72,16 +72,32 @@
     if (self.pairGame) {
         self.navItem.title = @"Pair" ;
     }
+    
+    if (self.networkGame) {
+        self.navItem.title = @"Network" ;
+        self.networkGame.delegate = self ;
+    }
+    
+    if (self.networkGame && !self.networkGame.initiated) {
+        [self.networkGame postInitWithName:[UIDevice currentDevice].name] ;
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated] ;
     
+    if (self.networkGame && !self.networkGame.paired) {
+        [self.networkGame pair:self] ;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     if (self.watchGame && self.watchGame.watch) {
         [self.watchGame cooperate:NO] ;
+    }
+    
+    if (self.networkGame && self.networkGame.network) {
+        [self.networkGame stop] ;
     }
     
     [super viewWillDisappear:animated] ;
@@ -147,6 +163,10 @@
         [self.watchGame moveTo:(tag -1)] ;
     }
     
+    if (self.networkGame.network) {
+        [self.networkGame moveTo:(tag -1)] ;
+    }
+    
     if ([game isWinningForPlayer:Human]) {
         [self showBanner:Human] ;
         return ;
@@ -167,16 +187,24 @@
     }
 }
 
-- (IBAction)onReset:(id)sender {
+- (void)resetBoard {
     [game resetBoard] ;
     [self updateBoard] ;
     self.svButtons.userInteractionEnabled = YES ;
     self.viBanner.hidden = YES ;
+}
 
+- (IBAction)onReset:(id)sender {
+    [self resetBoard] ;
+    
     if (self.watchGame.watch) {
         [self.watchGame reset] ;
     }
     
+    if (self.networkGame && self.networkGame.network) {
+        [self.networkGame reset] ;
+    }
+
     if (self.pairGame) {
         [self.pairGame reset] ;
     }
@@ -213,7 +241,7 @@
 
 #pragma mark - <GameWatchDelegate>
 
-- (void)watchStateDidChange:(BOOL)watch {
+- (void)watchGame:(WatchGame *)watchGame didChangeState:(BOOL)watch {
     dispatch_async(dispatch_get_main_queue(), ^{
         if (watch) {
             self.navItem.title = @"Watch" ;
@@ -223,22 +251,52 @@
     }) ;
 }
 
-- (void)didReceiveDictionary:(NSDictionary<NSString *, id> *)dictionary {
+- (void)watchGame:(WatchGame *)watchGame didMoveTo:(NSInteger)index {
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSString *action = [dictionary objectForKey:@"action"] ;
-        if (action) {
-            if ([@"move" isEqualToString:action]) {
-                Move *move = [[Move alloc] init] ;
-                move.player = Computer ;
-                move.index = [[dictionary objectForKey:@"index"] longValue] ;
-                [self didMove:move] ;
-            }
+        Move *move = [[Move alloc] init] ;
+        move.player = Computer ;
+        move.index = index ;
+        [self didMove:move] ;
+    }) ;
+}
+
+- (void)resetFromWatchGame:(WatchGame *)watchGame {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self resetBoard] ;
+    }) ;
+}
+
+#pragma mark - <NetworkGameDelegate>
+
+- (void)networkGame:(NetworkGame *)networkGame didChangeState:(BOOL)network {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (network) {
+            self.navItem.title = @"Network" ;
+        } else {
+            [self.navigationController popViewControllerAnimated:YES] ;
         }
     }) ;
 }
 
-- (void)reset {
-    [self onReset:self] ;
+- (void)networkGame:(NetworkGame *)networkGame didMoveTo:(NSInteger)index {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        Move *move = [[Move alloc] init] ;
+        move.player = Computer ;
+        move.index = index ;
+        [self didMove:move] ;
+    }) ;
+}
+
+- (void)resetFromNetworkGame:(NetworkGame *)networkGame {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self resetBoard] ;
+    }) ;
+}
+
+- (void)stopFromNetworkGame:(NetworkGame *)networkGame {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.navigationController popViewControllerAnimated:YES] ;
+    }) ;
 }
 
 @end

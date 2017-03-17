@@ -183,16 +183,38 @@
     }
 }
 
-- (IBAction)onReset {
+- (void)resetBoard {
     [game resetBoard] ;
     
     [self updateBoard] ;
-
+    
     for (WKInterfaceButton *button in cells) {
         [button setEnabled:YES] ;
     }
-
+    
     self.viBanner.hidden = YES ;
+}
+
+- (IBAction)onReset {
+    [self resetBoard] ;
+    
+    if (!self.singleGame) {
+        if ([WCSession isSupported]) {
+            WCSession *session = [WCSession defaultSession] ;
+            if ([session isReachable]) {
+                [session sendMessage:@{@"action": @"reset"} replyHandler:nil errorHandler:^(NSError * _Nonnull error) {
+                    NSLog(@"WCSession sendMessage error %@", error) ;
+                }] ;
+            } else {
+                NSError *error = nil ;
+                [session updateApplicationContext:@{@"action": @"reset"} error:&error] ;
+                if (error) {
+                    NSLog(@"WCSession updateApplicationContext error %@", error) ;
+                }
+            }
+        }
+    }
+    
 }
 
 #pragma mark <SingleGameDelegate>
@@ -243,7 +265,7 @@
         }
 
         if ([@"reset" isEqualToString:action]) {
-            [self onReset] ;
+            [self resetBoard] ;
             return ;
         }
 

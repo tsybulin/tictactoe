@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class WatchGame ;
+
 @protocol WatchGameDelegate <NSObject>
 
-- (void)watchStateDidChange:(BOOL)watch ;
-- (void)didReceiveDictionary:(NSDictionary<NSString *, id> *)dictionary ;
-- (void)reset ;
+- (void)watchGame:(WatchGame *)watchGame didChangeState:(BOOL)watch ;
+- (void)watchGame:(WatchGame *)watchGame didMoveTo:(NSInteger)index ;
+- (void)resetFromWatchGame:(WatchGame *)watchGame ;
 
 @end
 

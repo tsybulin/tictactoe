@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C428CEDC1E7C40F500EDDCC5 /* NetworkGame.m in Sources */ = {isa = PBXBuildFile; fileRef = C428CEDB1E7C40F500EDDCC5 /* NetworkGame.m */; };
 		C44908011E799DC50068E3BE /* WatchGame.m in Sources */ = {isa = PBXBuildFile; fileRef = C44908001E799DC50068E3BE /* WatchGame.m */; };
 		C44908041E79AF040068E3BE /* ModeController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44908031E79AF040068E3BE /* ModeController.m */; };
 		C46F13A11E7AD8CD000BD1D3 /* SingleGame.m in Sources */ = {isa = PBXBuildFile; fileRef = C46F13A01E7AD8CD000BD1D3 /* SingleGame.m */; };
@@ -75,6 +76,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C428CEDA1E7C40F500EDDCC5 /* NetworkGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkGame.h; sourceTree = "<group>"; };
+		C428CEDB1E7C40F500EDDCC5 /* NetworkGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkGame.m; sourceTree = "<group>"; };
 		C44907FF1E799DC50068E3BE /* WatchGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchGame.h; sourceTree = "<group>"; };
 		C44908001E799DC50068E3BE /* WatchGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchGame.m; sourceTree = "<group>"; };
 		C44908021E79AF040068E3BE /* ModeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModeController.h; sourceTree = "<group>"; };
@@ -131,6 +134,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C428CED91E7C2F3600EDDCC5 /* game */ = {
+			isa = PBXGroup;
+			children = (
+				C47A55A01E75C6CE0014249C /* Player.h */,
+				C47A55A11E75C7640014249C /* Move.h */,
+				C47A55A21E75C7640014249C /* Move.m */,
+				C47A55A41E75C8910014249C /* Game.h */,
+				C47A55A51E75C8910014249C /* Game.m */,
+				C46F139F1E7AD8CD000BD1D3 /* SingleGame.h */,
+				C46F13A01E7AD8CD000BD1D3 /* SingleGame.m */,
+				C44907FF1E799DC50068E3BE /* WatchGame.h */,
+				C44908001E799DC50068E3BE /* WatchGame.m */,
+				C48EDB391E7B2CFD00DD3D89 /* PairGame.h */,
+				C48EDB3A1E7B2CFD00DD3D89 /* PairGame.m */,
+				C428CEDA1E7C40F500EDDCC5 /* NetworkGame.h */,
+				C428CEDB1E7C40F500EDDCC5 /* NetworkGame.m */,
+			);
+			name = game;
+			sourceTree = "<group>";
+		};
 		C44908051E79B20E0068E3BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,23 +185,13 @@
 		C47A55881E75C65C0014249C /* tictactoe */ = {
 			isa = PBXGroup;
 			children = (
+				C428CED91E7C2F3600EDDCC5 /* game */,
 				C47A558C1E75C65C0014249C /* AppDelegate.h */,
 				C47A558D1E75C65C0014249C /* AppDelegate.m */,
 				C44908021E79AF040068E3BE /* ModeController.h */,
 				C44908031E79AF040068E3BE /* ModeController.m */,
 				C47A558F1E75C65C0014249C /* GameController.h */,
 				C47A55901E75C65C0014249C /* GameController.m */,
-				C47A55A01E75C6CE0014249C /* Player.h */,
-				C47A55A11E75C7640014249C /* Move.h */,
-				C47A55A21E75C7640014249C /* Move.m */,
-				C47A55A41E75C8910014249C /* Game.h */,
-				C47A55A51E75C8910014249C /* Game.m */,
-				C46F139F1E7AD8CD000BD1D3 /* SingleGame.h */,
-				C46F13A01E7AD8CD000BD1D3 /* SingleGame.m */,
-				C44907FF1E799DC50068E3BE /* WatchGame.h */,
-				C44908001E799DC50068E3BE /* WatchGame.m */,
-				C48EDB391E7B2CFD00DD3D89 /* PairGame.h */,
-				C48EDB3A1E7B2CFD00DD3D89 /* PairGame.m */,
 				C47A55921E75C65C0014249C /* Main.storyboard */,
 				C47A55951E75C65C0014249C /* Assets.xcassets */,
 				C47A55971E75C65C0014249C /* LaunchScreen.storyboard */,
@@ -367,6 +380,7 @@
 				C47A55A31E75C7640014249C /* Move.m in Sources */,
 				C46F13A11E7AD8CD000BD1D3 /* SingleGame.m in Sources */,
 				C47A55911E75C65C0014249C /* GameController.m in Sources */,
+				C428CEDC1E7C40F500EDDCC5 /* NetworkGame.m in Sources */,
 				C47A558E1E75C65C0014249C /* AppDelegate.m in Sources */,
 				C44908041E79AF040068E3BE /* ModeController.m in Sources */,
 				C47A558B1E75C65C0014249C /* main.m in Sources */,

@@ -43,10 +43,10 @@
                                 <rect key="frame" x="21" y="145" width="278" height="278"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="EW4-yw-0pS">
-                                        <rect key="frame" x="0.0" y="0.0" width="278" height="84.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="278" height="85"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zZ-Np-A7K">
-                                                <rect key="frame" x="0.0" y="0.0" width="84.5" height="84.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                                 <state key="normal" backgroundImage="empty">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -56,7 +56,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="uLS-ik-ajR">
-                                                <rect key="frame" x="96.5" y="0.0" width="85" height="84.5"/>
+                                                <rect key="frame" x="97" y="0.0" width="84.5" height="85"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
                                                 <state key="normal" backgroundImage="empty">
                                                     <string key="title">Single
@@ -72,7 +72,7 @@ Game</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tf2-AI-Pb3">
-                                                <rect key="frame" x="193.5" y="0.0" width="84.5" height="84.5"/>
+                                                <rect key="frame" x="193.5" y="0.0" width="84.5" height="85"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                                 <state key="normal" backgroundImage="empty">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -91,10 +91,10 @@ Game</string>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="d3m-PI-BMI">
-                                        <rect key="frame" x="0.0" y="96.5" width="278" height="85"/>
+                                        <rect key="frame" x="0.0" y="97" width="278" height="84.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esx-8v-ImB">
-                                                <rect key="frame" x="0.0" y="0.0" width="84.5" height="85"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="84.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                                 <state key="normal" backgroundImage="empty">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -104,7 +104,7 @@ Game</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="8DM-aF-d9o">
-                                                <rect key="frame" x="96.5" y="0.0" width="85" height="85"/>
+                                                <rect key="frame" x="97" y="0.0" width="84.5" height="84.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
                                                 <state key="normal" backgroundImage="empty">
                                                     <string key="title">Pair
@@ -119,14 +119,20 @@ Game</string>
                                                     <segue destination="BYZ-38-t0r" kind="show" identifier="PairGame" id="1qE-ep-rK6"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="6" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lwh-4t-6dC">
-                                                <rect key="frame" x="193.5" y="0.0" width="84.5" height="85"/>
-                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
+                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Lwh-4t-6dC">
+                                                <rect key="frame" x="193.5" y="0.0" width="84.5" height="84.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
                                                 <state key="normal" backgroundImage="empty">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <string key="title">Network
+Game</string>
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="36"/>
+                                                </variation>
                                                 <connections>
                                                     <action selector="onHuman:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xLZ-Ps-Yrn"/>
+                                                    <segue destination="BYZ-38-t0r" kind="show" identifier="NetworkGame" id="iyt-IV-uKX"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -141,7 +147,7 @@ Game</string>
                                         <rect key="frame" x="0.0" y="193.5" width="278" height="84.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="7" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SaV-4C-28X">
-                                                <rect key="frame" x="0.0" y="0.0" width="84.5" height="84.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="84.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                                 <state key="normal" backgroundImage="empty">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -151,7 +157,7 @@ Game</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="yLz-ZJ-NEI">
-                                                <rect key="frame" x="96.5" y="0.0" width="85" height="84.5"/>
+                                                <rect key="frame" x="97" y="0.0" width="84.5" height="84.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
                                                 <state key="normal" backgroundImage="empty">
                                                     <string key="title">Watch
@@ -226,10 +232,10 @@ Game</string>
                                 <rect key="frame" x="21" y="145" width="278" height="278"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="F6c-yG-mRx">
-                                        <rect key="frame" x="0.0" y="0.0" width="278" height="84.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="278" height="85"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paM-vJ-xHC">
-                                                <rect key="frame" x="0.0" y="0.0" width="84.5" height="84.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                                 <state key="normal" backgroundImage="empty">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -239,7 +245,7 @@ Game</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nz9-9f-wC8">
-                                                <rect key="frame" x="96.5" y="0.0" width="85" height="84.5"/>
+                                                <rect key="frame" x="97" y="0.0" width="84.5" height="85"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                                 <state key="normal" backgroundImage="empty">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -249,7 +255,7 @@ Game</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1F-hq-hm5">
-                                                <rect key="frame" x="193.5" y="0.0" width="84.5" height="84.5"/>
+                                                <rect key="frame" x="193.5" y="0.0" width="84.5" height="85"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                                 <state key="normal" backgroundImage="empty">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -268,10 +274,10 @@ Game</string>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="b9T-f5-4Bi">
-                                        <rect key="frame" x="0.0" y="96.5" width="278" height="85"/>
+                                        <rect key="frame" x="0.0" y="97" width="278" height="84.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNM-RZ-m2N">
-                                                <rect key="frame" x="0.0" y="0.0" width="84.5" height="85"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="84.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                                 <state key="normal" backgroundImage="empty">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -281,7 +287,7 @@ Game</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfF-YZ-Mdt">
-                                                <rect key="frame" x="96.5" y="0.0" width="85" height="85"/>
+                                                <rect key="frame" x="97" y="0.0" width="84.5" height="84.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                                 <state key="normal" backgroundImage="empty">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -291,7 +297,7 @@ Game</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dB6-re-3Zx">
-                                                <rect key="frame" x="193.5" y="0.0" width="84.5" height="85"/>
+                                                <rect key="frame" x="193.5" y="0.0" width="84.5" height="84.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                                 <state key="normal" backgroundImage="empty">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -312,7 +318,7 @@ Game</string>
                                         <rect key="frame" x="0.0" y="193.5" width="278" height="84.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zxu-rr-VJn">
-                                                <rect key="frame" x="0.0" y="0.0" width="84.5" height="84.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="84.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                                 <state key="normal" backgroundImage="empty">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -322,7 +328,7 @@ Game</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lG1-fb-7ec">
-                                                <rect key="frame" x="96.5" y="0.0" width="85" height="84.5"/>
+                                                <rect key="frame" x="97" y="0.0" width="84.5" height="84.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                                 <state key="normal" backgroundImage="empty">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -416,6 +422,6 @@ Game</string>
         <image name="empty" width="96" height="96"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wj5-3k-4m2"/>
+        <segue reference="iyt-IV-uKX"/>
     </inferredMetricsTieBreakers>
 </document>

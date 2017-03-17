@@ -11,6 +11,7 @@
 #import "SingleGame.h"
 #import "WatchGame.h"
 #import "PairGame.h"
+#import "NetworkGame.h"
 
 @interface ModeController ()
 
@@ -44,6 +45,9 @@
         ((GameController *) segue.destinationViewController).singleGame = nil ;
         ((GameController *) segue.destinationViewController).watchGame = nil ;
         ((GameController *) segue.destinationViewController).pairGame = [[PairGame alloc] init] ;
+        return ;
+    } else if ([@"NetworkGame" isEqualToString:segue.identifier]) {
+        ((GameController *) segue.destinationViewController).networkGame = [[NetworkGame alloc] init] ;
         return ;
     }
 }

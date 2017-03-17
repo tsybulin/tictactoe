@@ -32,7 +32,7 @@
             [session activateSession] ;
             
             if (self.delegate) {
-                [self.delegate reset] ;
+                [self.delegate resetFromWatchGame:self] ;
             }
             
         } else {
@@ -52,7 +52,7 @@
     }
     
     if (self.delegate) {
-        [self.delegate watchStateDidChange:self.watch] ;
+        [self.delegate watchGame:self didChangeState:self.watch] ;
     }
 }
 
@@ -82,6 +82,17 @@
     }
 }
 
+- (void)didReceiveDictionary:(NSDictionary<NSString *, id> *)dict {
+    NSString *action = [dict objectForKey:@"action"] ;
+    if (self.delegate) {
+        if ([@"move" isEqualToString:action]) {
+            [self.delegate watchGame:self didMoveTo:[[dict objectForKey:@"index"] longValue]] ;
+        } else if ([@"reset" isEqualToString:action]) {
+            [self.delegate resetFromWatchGame:self] ;
+        }
+    }
+}
+
 #pragma mark <WCSessionDelegate>
 
 - (void)session:(WCSession *)session activationDidCompleteWithState:(WCSessionActivationState)activationState error:(nullable NSError *)error {
@@ -91,7 +102,7 @@
         } else {
             self.watch = NO ;
             if (self.delegate) {
-                [self.delegate watchStateDidChange:NO] ;
+                [self.delegate watchGame:self didChangeState:NO] ;
             }
         }
     }
@@ -100,27 +111,24 @@
 - (void)sessionDidBecomeInactive:(WCSession *)session {
     self.watch = NO ;
     if (self.delegate) {
-        [self.delegate watchStateDidChange:NO] ;
+        [self.delegate watchGame:self didChangeState:NO] ;
     }
 }
 
 - (void)sessionDidDeactivate:(WCSession *)session {
     self.watch = NO ;
     if (self.delegate) {
-        [self.delegate watchStateDidChange:NO] ;
+        [self.delegate watchGame:self didChangeState:NO] ;
     }
 }
 
+
 - (void)session:(WCSession *)session didReceiveApplicationContext:(NSDictionary<NSString *, id> *)applicationContext {
-    if (self.delegate) {
-        [self.delegate didReceiveDictionary:applicationContext] ;
-    }
+    [self didReceiveDictionary:applicationContext] ;
 }
 
 - (void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *, id> *)message {
-    if (self.delegate) {
-        [self.delegate didReceiveDictionary:message] ;
-    }
+    [self didReceiveDictionary:message] ;
 }
 
 

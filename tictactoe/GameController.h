@@ -10,12 +10,14 @@
 #import "SingleGame.h"
 #import "WatchGame.h"
 #import "PairGame.h"
+#import "NetworkGame.h"
 
 @interface GameController : UIViewController
 
 @property (nonatomic, strong) SingleGame *singleGame ;
 @property (nonatomic, strong) WatchGame *watchGame ;
 @property (nonatomic, strong) PairGame *pairGame ;
+@property (nonatomic, strong) NetworkGame *networkGame ;
 
 @end
 
