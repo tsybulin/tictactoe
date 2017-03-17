@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aFJ-FD-Zni">
+    <device id="watch42" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11508"/>
+    </dependencies>
+    <scenes>
+        <!--Mode-->
+        <scene sceneID="8KD-gD-3Ee">
+            <objects>
+                <controller title="Mode" id="aFJ-FD-Zni" customClass="WEModeController">
+                    <items>
+                        <group width="1" alignment="left" verticalAlignment="center" layout="vertical" spacing="18" id="acx-Gb-d2c">
+                            <items>
+                                <button width="1" alignment="left" title="Single Game" id="lQ9-2C-Mgr">
+                                    <connections>
+                                        <segue destination="AgC-eL-Hgc" kind="push" identifier="SingleGame" id="CWT-h2-iwi"/>
+                                    </connections>
+                                </button>
+                                <button width="1" alignment="left" title="iPhone" id="oov-GO-lHR">
+                                    <connections>
+                                        <segue destination="AgC-eL-Hgc" kind="push" id="mBf-wS-hNu"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-261" y="49"/>
+        </scene>
+        <!--Game-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller title="Game" id="AgC-eL-Hgc" customClass="WEGameController">
+                    <items>
+                        <label width="1" height="9" alignment="left" text="Single" textAlignment="center" id="sVg-GY-5C8">
+                            <fontDescription key="font" type="system" pointSize="8"/>
+                        </label>
+                        <group width="1" widthAdjustment="1" alignment="left" radius="0.0" spacing="4" id="dtg-QB-MJw">
+                            <items>
+                                <button width="48" height="48" alignment="left" backgroundImage="wempty" id="7JY-R2-xkK">
+                                    <connections>
+                                        <action selector="onHuman0" destination="AgC-eL-Hgc" id="Zsm-w6-D4t"/>
+                                    </connections>
+                                </button>
+                                <button width="48" height="48" alignment="center" backgroundImage="wempty" id="w4M-XG-GRu">
+                                    <connections>
+                                        <action selector="onHuman1" destination="AgC-eL-Hgc" id="nxb-hi-8zM"/>
+                                    </connections>
+                                </button>
+                                <button width="48" height="48" alignment="right" backgroundImage="wempty" id="Lho-gS-6sb">
+                                    <connections>
+                                        <action selector="onHuman2" destination="AgC-eL-Hgc" id="4An-tQ-Lmh"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" hidden="YES" layout="vertical" spacing="4" id="Mdo-bz-wlZ">
+                            <items>
+                                <label width="1" height="50" alignment="left" text="You won" textAlignment="center" id="Ycj-HS-dG9">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="font" type="system" weight="black" pointSize="16"/>
+                                </label>
+                                <button width="1" alignment="left" title="Reset" id="OmL-WP-KVE">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <connections>
+                                        <action selector="onReset" destination="AgC-eL-Hgc" id="2oZ-OL-6s8"/>
+                                    </connections>
+                                </button>
+                            </items>
+                            <color key="backgroundColor" red="0.59992296006944446" green="0.26786560167100687" blue="0.11398536241319442" alpha="1" colorSpace="calibratedRGB"/>
+                        </group>
+                        <group width="1" widthAdjustment="1" alignment="left" radius="0.0" spacing="4" id="KSU-sK-y0y">
+                            <items>
+                                <button width="48" height="48" alignment="left" backgroundImage="wempty" id="znV-JQ-Q4c">
+                                    <connections>
+                                        <action selector="onHuman3" destination="AgC-eL-Hgc" id="B0q-Cw-4oH"/>
+                                    </connections>
+                                </button>
+                                <button width="48" height="48" alignment="center" backgroundImage="wempty" id="zUb-IS-Yao">
+                                    <connections>
+                                        <action selector="onHuman4" destination="AgC-eL-Hgc" id="v2k-2y-hoG"/>
+                                    </connections>
+                                </button>
+                                <button width="48" height="48" alignment="right" backgroundImage="wempty" id="hNY-2z-L7E">
+                                    <connections>
+                                        <action selector="onHuman5" destination="AgC-eL-Hgc" id="NY1-rv-Xlq"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <group width="1" widthAdjustment="1" alignment="left" radius="0.0" spacing="4" id="Nfc-Ap-nIp">
+                            <items>
+                                <button width="48" height="48" alignment="left" backgroundImage="wempty" id="5Mv-qx-QF3">
+                                    <connections>
+                                        <action selector="onHuman6" destination="AgC-eL-Hgc" id="apv-8E-Cok"/>
+                                    </connections>
+                                </button>
+                                <button width="48" height="48" alignment="center" backgroundImage="wempty" id="jGL-50-25Y">
+                                    <connections>
+                                        <action selector="onHuman7" destination="AgC-eL-Hgc" id="WIQ-XC-60b"/>
+                                    </connections>
+                                </button>
+                                <button width="48" height="48" alignment="right" backgroundImage="wempty" id="hmI-6M-VUe">
+                                    <connections>
+                                        <action selector="onHuman8" destination="AgC-eL-Hgc" id="giJ-87-KIw"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <menu key="menu" id="E3o-Qv-Gv5">
+                        <items>
+                            <menuItem title="Reset" icon="trash" id="oEE-BZ-J1i">
+                                <connections>
+                                    <action selector="onReset" destination="AgC-eL-Hgc" id="dWL-ET-s3E"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="cell0" destination="7JY-R2-xkK" id="Jyy-EC-sR0"/>
+                        <outlet property="cell1" destination="w4M-XG-GRu" id="8ET-la-pOk"/>
+                        <outlet property="cell2" destination="Lho-gS-6sb" id="c77-5F-pSN"/>
+                        <outlet property="cell3" destination="znV-JQ-Q4c" id="yre-oJ-7JO"/>
+                        <outlet property="cell4" destination="zUb-IS-Yao" id="HBg-fs-jN3"/>
+                        <outlet property="cell5" destination="hNY-2z-L7E" id="yfc-8r-5MG"/>
+                        <outlet property="cell6" destination="5Mv-qx-QF3" id="rwD-do-WOw"/>
+                        <outlet property="cell7" destination="jGL-50-25Y" id="D1L-Ew-XWh"/>
+                        <outlet property="cell8" destination="hmI-6M-VUe" id="G0q-SX-y02"/>
+                        <outlet property="lblBanner" destination="Ycj-HS-dG9" id="glK-4i-g3n"/>
+                        <outlet property="lblMode" destination="sVg-GY-5C8" id="6k4-8B-lvT"/>
+                        <outlet property="viBanner" destination="Mdo-bz-wlZ" id="zif-N8-MJc"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="34" y="49.256410256410263"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="mBf-wS-hNu"/>
+    </inferredMetricsTieBreakers>
+</document>
