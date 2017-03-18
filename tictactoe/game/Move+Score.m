@@ -10,6 +10,12 @@
 
 @implementation Move (Score)
 
-@dynamic score ;
+- (NSInteger)score {
+    return _score ;
+}
+
+- (void)setScore:(NSInteger)score {
+    _score = score ;
+}
 
 @end

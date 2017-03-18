@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "Figure.h"
 
-@interface Move : NSObject
+@interface Move : NSObject {
+    NSInteger _score ;
+}
 
 @property (nonatomic) Figure figure ;
 @property (nonatomic) NSInteger index ;

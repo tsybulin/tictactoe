@@ -8,11 +8,6 @@
 
 #import "Move.h"
 
-@interface Move () {
-    NSInteger _score ;
-}
-
-@end
 @implementation Move
 
 - (instancetype)init {
