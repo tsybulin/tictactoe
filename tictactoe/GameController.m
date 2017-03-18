@@ -239,7 +239,7 @@
     self.svButtons.userInteractionEnabled = YES ;
 }
 
-#pragma mark - <GameWatchDelegate>
+#pragma mark - <WatchGameDelegate>
 
 - (void)watchGame:(WatchGame *)watchGame didChangeState:(BOOL)watch {
     dispatch_async(dispatch_get_main_queue(), ^{
