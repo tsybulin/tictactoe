@@ -13,18 +13,18 @@
 - (instancetype)init {
     self = [super init];
     if (self = [super init]) {
-        _player = Human ;
+        _figure = Zero ;
     }
     
     return self;
 }
 
-- (void)flipPlayer {
-    _player = _player == Human ? Computer : Human ;
+- (void)flipFigure {
+    _figure = _figure == Zero ? Cross : Zero ;
 }
 
 - (void)reset {
-    _player = Human ;
+    _figure = Zero ;
 }
 
 @end

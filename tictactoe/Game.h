@@ -17,7 +17,7 @@ typedef NSArray<Move *> Board ;
 
 - (void)resetBoard ;
 - (Board *)availableMoves ;
-- (BOOL)isWinningForPlayer:(Player)player ;
+- (BOOL)isWinningForFigure:(Figure)figure ;
 - (BOOL)isFinished ;
 
 @end

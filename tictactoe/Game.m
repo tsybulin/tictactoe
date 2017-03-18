@@ -7,16 +7,16 @@
 //
 
 #import "Game.h"
-#import "Player.h"
+#import "Figure.h"
 
 @implementation Game
 
 - (instancetype)init {
     if (self = [super init]) {
         self.board = @[
-            [Move moveWithIndex:0 andPlayer:Empty], [Move moveWithIndex:1 andPlayer:Empty], [Move moveWithIndex:2 andPlayer:Empty],
-            [Move moveWithIndex:3 andPlayer:Empty], [Move moveWithIndex:4 andPlayer:Empty], [Move moveWithIndex:5 andPlayer:Empty],
-            [Move moveWithIndex:6 andPlayer:Empty], [Move moveWithIndex:7 andPlayer:Empty], [Move moveWithIndex:8 andPlayer:Empty]
+            [Move moveWithIndex:0 andFigure:Empty], [Move moveWithIndex:1 andFigure:Empty], [Move moveWithIndex:2 andFigure:Empty],
+            [Move moveWithIndex:3 andFigure:Empty], [Move moveWithIndex:4 andFigure:Empty], [Move moveWithIndex:5 andFigure:Empty],
+            [Move moveWithIndex:6 andFigure:Empty], [Move moveWithIndex:7 andFigure:Empty], [Move moveWithIndex:8 andFigure:Empty]
         ] ;
 
     }
@@ -27,34 +27,34 @@
 - (void)resetBoard {
     for (Move *move in self.board) {
         move.score = 0 ;
-        move.player = Empty ;
+        move.figure = Empty ;
     }
 }
 
 - (Board *)availableMoves {
     return [self.board filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-        return ((Move *)evaluatedObject).player == Empty ;
+        return ((Move *)evaluatedObject).figure == Empty ;
     }]] ;
 }
 
-- (BOOL)isWinningForPlayer:(Player)player {
+- (BOOL)isWinningForFigure:(Figure)figure {
     return
-        ([self.board objectAtIndex:0].player == player && [self.board objectAtIndex:1].player == player && [self.board objectAtIndex:2].player == player) ||
-        ([self.board objectAtIndex:3].player == player && [self.board objectAtIndex:4].player == player && [self.board objectAtIndex:5].player == player) ||
-        ([self.board objectAtIndex:6].player == player && [self.board objectAtIndex:7].player == player && [self.board objectAtIndex:8].player == player) ||
+        ([self.board objectAtIndex:0].figure == figure && [self.board objectAtIndex:1].figure == figure && [self.board objectAtIndex:2].figure == figure) ||
+        ([self.board objectAtIndex:3].figure == figure && [self.board objectAtIndex:4].figure == figure && [self.board objectAtIndex:5].figure == figure) ||
+        ([self.board objectAtIndex:6].figure == figure && [self.board objectAtIndex:7].figure == figure && [self.board objectAtIndex:8].figure == figure) ||
 
-        ([self.board objectAtIndex:0].player == player && [self.board objectAtIndex:3].player == player && [self.board objectAtIndex:6].player == player) ||
-        ([self.board objectAtIndex:1].player == player && [self.board objectAtIndex:4].player == player && [self.board objectAtIndex:7].player == player) ||
-        ([self.board objectAtIndex:2].player == player && [self.board objectAtIndex:5].player == player && [self.board objectAtIndex:8].player == player) ||
+        ([self.board objectAtIndex:0].figure == figure && [self.board objectAtIndex:3].figure == figure && [self.board objectAtIndex:6].figure == figure) ||
+        ([self.board objectAtIndex:1].figure == figure && [self.board objectAtIndex:4].figure == figure && [self.board objectAtIndex:7].figure == figure) ||
+        ([self.board objectAtIndex:2].figure == figure && [self.board objectAtIndex:5].figure == figure && [self.board objectAtIndex:8].figure == figure) ||
         
-        ([self.board objectAtIndex:0].player == player && [self.board objectAtIndex:4].player == player && [self.board objectAtIndex:8].player == player) ||
-        ([self.board objectAtIndex:2].player == player && [self.board objectAtIndex:4].player == player && [self.board objectAtIndex:6].player == player)
+        ([self.board objectAtIndex:0].figure == figure && [self.board objectAtIndex:4].figure == figure && [self.board objectAtIndex:8].figure == figure) ||
+        ([self.board objectAtIndex:2].figure == figure && [self.board objectAtIndex:4].figure == figure && [self.board objectAtIndex:6].figure == figure)
     ;
 }
 
 - (BOOL)isFinished {
     for (Move *move in self.board) {
-        if (move.player == Empty) {
+        if (move.figure == Empty) {
             return NO ;
         }
     }

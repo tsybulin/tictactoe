@@ -112,15 +112,15 @@
     for (Move *move in game.board) {
         UIButton *button = [cells objectAtIndex:move.index] ;
         
-        [button setBackgroundImage:[imgs objectAtIndex:move.player] forState:UIControlStateNormal] ;
-        button.userInteractionEnabled = move.player == Empty ;
+        [button setBackgroundImage:[imgs objectAtIndex:move.figure] forState:UIControlStateNormal] ;
+        button.userInteractionEnabled = move.figure == Empty ;
     }
 }
 
-- (void)showBanner:(Player)player {
-    if (player == Empty) {
+- (void)showBanner:(Figure)figure {
+    if (figure == Empty) {
         self.lblBanner.text = @"Tie" ;
-    } else if (player == Human) {
+    } else if (figure == Zero) {
         self.lblBanner.text = @"X lose" ;
     } else {
         self.lblBanner.text = @"X won" ;
@@ -140,12 +140,12 @@
     if (!self.pairGame) {
         self.svButtons.userInteractionEnabled = NO ;
         
-        [game.board objectAtIndex:(tag - 1)].player = Human ;
+        [game.board objectAtIndex:(tag - 1)].figure = Zero ;
         [self updateBoard] ;
     } else {
-        [game.board objectAtIndex:(tag - 1)].player = self.pairGame.player ;
+        [game.board objectAtIndex:(tag - 1)].figure = self.pairGame.figure ;
         [self updateBoard] ;
-        [self.pairGame flipPlayer] ;
+        [self.pairGame flipFigure] ;
         
         CABasicAnimation* rotationAnimation;
         rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
@@ -167,13 +167,13 @@
         [self.networkGame moveTo:(tag -1)] ;
     }
     
-    if ([game isWinningForPlayer:Human]) {
-        [self showBanner:Human] ;
+    if ([game isWinningForFigure:Zero]) {
+        [self showBanner:Zero] ;
         return ;
     }
     
-    if ([game isWinningForPlayer:Computer]) {
-        [self showBanner:Computer] ;
+    if ([game isWinningForFigure:Cross]) {
+        [self showBanner:Cross] ;
         return ;
     }
 
@@ -213,7 +213,7 @@
 #pragma mark - <SingleGameDelegate>
 
 - (void)didMove:(Move *)move {
-    [game.board objectAtIndex:move.index].player = move.player ;
+    [game.board objectAtIndex:move.index].figure = move.figure ;
     [self updateBoard] ;
 
     CABasicAnimation *fadeInAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"] ;
@@ -226,8 +226,8 @@
     fadeInAnimation.fillMode = kCAFillModeForwards ;
     [[cells objectAtIndex:move.index].layer addAnimation:fadeInAnimation forKey:@"fadeAnimation"] ;
     
-    if ([game isWinningForPlayer:Computer]) {
-        [self showBanner:Computer] ;
+    if ([game isWinningForFigure:Cross]) {
+        [self showBanner:Cross] ;
         return ;
     }
     
@@ -254,7 +254,7 @@
 - (void)watchGame:(WatchGame *)watchGame didMoveTo:(NSInteger)index {
     dispatch_async(dispatch_get_main_queue(), ^{
         Move *move = [[Move alloc] init] ;
-        move.player = Computer ;
+        move.figure = Cross ;
         move.index = index ;
         [self didMove:move] ;
     }) ;
@@ -281,7 +281,7 @@
 - (void)networkGame:(NetworkGame *)networkGame didMoveTo:(NSInteger)index {
     dispatch_async(dispatch_get_main_queue(), ^{
         Move *move = [[Move alloc] init] ;
-        move.player = Computer ;
+        move.figure = Cross ;
         move.index = index ;
         [self didMove:move] ;
     }) ;

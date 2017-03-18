@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Player.h"
+#import "Figure.h"
 
 @interface Move : NSObject
 
-@property (nonatomic) Player player ;
+@property (nonatomic) Figure figure ;
 @property (nonatomic) NSInteger index ;
 @property (nonatomic) NSInteger score ;
 
-+ (instancetype)moveWithIndex:(NSInteger)index andPlayer:(Player)player ;
++ (instancetype)moveWithIndex:(NSInteger)index andFigure:(Figure)figure ;
 - (NSString *)caption ;
 
 @end

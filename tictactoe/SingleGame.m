@@ -27,20 +27,20 @@
     return self ;
 }
 
-- (Move *)bestMoveFor:(Player)player {
+- (Move *)bestMoveFor:(Figure)figure {
     Board *availables = [self.game availableMoves] ;
 
-    if ([self.game isWinningForPlayer:Human]) {
+    if ([self.game isWinningForFigure:Zero]) {
         Move *move = [[Move alloc] init] ;
         move.score = -10 ;
-        move.player = Human ;
+        move.figure = Zero ;
         return move ;
     }
 
-    if ([self.game isWinningForPlayer:Computer]) {
+    if ([self.game isWinningForFigure:Cross]) {
         Move *move = [[Move alloc] init] ;
         move.score = 10 ;
-        move.player = Computer ;
+        move.figure = Cross ;
         return move ;
     }
 
@@ -54,23 +54,23 @@
         Move *move = [[Move alloc] init] ;
         move.index = available.index ;
 
-        [self.game.board objectAtIndex:available.index].player = player ;
+        [self.game.board objectAtIndex:available.index].figure = figure ;
 
-        Move *m = [self bestMoveFor:(player == Human) ? Computer : Human] ;
+        Move *m = [self bestMoveFor:(figure == Zero) ? Cross : Zero] ;
         move.score = m.score ;
-        move.player = player ;
+        move.figure = figure ;
 
-        [self.game.board objectAtIndex:available.index].player = Empty ;
+        [self.game.board objectAtIndex:available.index].figure = Empty ;
 
         [moves addObject:move] ;
     }
 
     Move *best = [[Move alloc] init] ;
-    best.player = player ;
-    best.score = (player == Computer) ? -10000 : 10000 ;
+    best.figure = figure ;
+    best.score = (figure == Cross) ? -10000 : 10000 ;
 
     for (Move *move in moves) {
-        if (player == Computer) {
+        if (figure == Cross) {
             if (move.score > best.score) {
                 best = move ;
             }
@@ -86,7 +86,7 @@
 
 - (void)move {
     [queue addOperationWithBlock:^{
-        Move *move = [self bestMoveFor:Computer] ;
+        Move *move = [self bestMoveFor:Cross] ;
         if (self.delegate) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.delegate didMove:move] ;

@@ -87,14 +87,14 @@
 - (void)updateBoard {
     for (Move *move in game.board) {
         WKInterfaceButton *button = [cells objectAtIndex:move.index] ;
-        [button setBackgroundImageNamed:[imgs objectAtIndex:move.player]] ;
+        [button setBackgroundImageNamed:[imgs objectAtIndex:move.figure]] ;
     }
 }
 
-- (void)showBanner:(Player)player {
-    if (player == Empty) {
+- (void)showBanner:(Figure)figure {
+    if (figure == Empty) {
         self.lblBanner.text = @"Tie" ;
-    } else if (player == Human) {
+    } else if (figure == Zero) {
         self.lblBanner.text = @"You won" ;
     } else {
         self.lblBanner.text = @"You lose" ;
@@ -140,11 +140,11 @@
 }
 
 - (void)onHuman:(NSInteger)tag {
-    if ([game.board objectAtIndex:tag].player != Empty) {
+    if ([game.board objectAtIndex:tag].figure != Empty) {
         return ;
     }
 
-    [game.board objectAtIndex:tag].player = Human ;
+    [game.board objectAtIndex:tag].figure = Zero ;
     [self updateBoard] ;
     
     for (WKInterfaceButton *button in cells) {
@@ -168,8 +168,8 @@
         }
     }
     
-    if ([game isWinningForPlayer:Human]) {
-        [self showBanner:Human] ;
+    if ([game isWinningForFigure:Zero]) {
+        [self showBanner:Zero] ;
         return ;
     }
     
@@ -220,11 +220,11 @@
 #pragma mark <SingleGameDelegate>
 
 - (void)didMove:(Move *)move {
-    [game.board objectAtIndex:move.index].player = move.player ;
+    [game.board objectAtIndex:move.index].figure = move.figure ;
     [self updateBoard] ;
     
-    if ([game isWinningForPlayer:Computer]) {
-        [self showBanner:Computer] ;
+    if ([game isWinningForFigure:Cross]) {
+        [self showBanner:Cross] ;
         return ;
     }
     
@@ -271,7 +271,7 @@
 
         if ([@"move" isEqualToString:action]) {
             Move *move = [[Move alloc] init] ;
-            move.player = Computer ;
+            move.figure = Cross ;
             move.index = [[message objectForKey:@"index"] longValue] ;
             
             [self didMove:move] ;

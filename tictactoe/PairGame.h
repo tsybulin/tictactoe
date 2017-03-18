@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Player.h"
+#import "Figure.h"
 
 @interface PairGame : NSObject
 
-@property (nonatomic, readonly) Player player ;
+@property (nonatomic, readonly) Figure figure ;
 
-- (void)flipPlayer ;
+- (void)flipFigure ;
 - (void)reset ;
 
 @end

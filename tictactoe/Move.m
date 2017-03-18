@@ -12,36 +12,36 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.player = Empty ;
+        self.figure = Empty ;
         self.score = 0 ;
         self.index = 0 ;
     }
     return self ;
 }
 
-+ (instancetype)moveWithIndex:(NSInteger)index andPlayer:(Player)player {
++ (instancetype)moveWithIndex:(NSInteger)index andFigure:(Figure)figure {
     Move *move = [[Move alloc] init] ;
     move.index = index ;
-    move.player = player ;
+    move.figure = figure ;
     return move ;
 }
 
 - (NSString *)description {
-    NSString *player ;
-    if (self.player == Human) {
-        player = @"Human" ;
-    } else if (self.player == Computer) {
-        player = @"Computer" ;
+    NSString *figure ;
+    if (self.figure == Zero) {
+        figure = @"Zero" ;
+    } else if (self.figure == Cross) {
+        figure = @"Cross" ;
     } else {
-        player = @"Empty" ;
+        figure = @"Empty" ;
     }
-    return [NSString stringWithFormat:@"Move player %@, index %ld, score %ld", player, (long)self.index, (long)self.score] ;
+    return [NSString stringWithFormat:@"Move figure %@, index %ld, score %ld", figure, (long)self.index, (long)self.score] ;
 }
 
 - (NSString *)caption {
-    if (self.player == Human) {
+    if (self.figure == Zero) {
         return @"0" ;
-    } else if (self.player == Computer) {
+    } else if (self.figure == Cross) {
         return @"X" ;
     }
     

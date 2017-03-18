@@ -96,7 +96,7 @@
 		C47A55951E75C65C0014249C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C47A55981E75C65C0014249C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C47A559A1E75C65C0014249C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C47A55A01E75C6CE0014249C /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		C47A55A01E75C6CE0014249C /* Figure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Figure.h; sourceTree = "<group>"; };
 		C47A55A11E75C7640014249C /* Move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Move.h; sourceTree = "<group>"; };
 		C47A55A21E75C7640014249C /* Move.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Move.m; sourceTree = "<group>"; };
 		C47A55A41E75C8910014249C /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 		C428CED91E7C2F3600EDDCC5 /* game */ = {
 			isa = PBXGroup;
 			children = (
-				C47A55A01E75C6CE0014249C /* Player.h */,
+				C47A55A01E75C6CE0014249C /* Figure.h */,
 				C47A55A11E75C7640014249C /* Move.h */,
 				C47A55A21E75C7640014249C /* Move.m */,
 				C47A55A41E75C8910014249C /* Game.h */,
