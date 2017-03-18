@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Move+Score.h"
 #import "Game.h"
 
 @protocol SingleGameDelegate <NSObject>

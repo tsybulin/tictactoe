@@ -8,12 +8,16 @@
 
 #import "Move.h"
 
+@interface Move () {
+    NSInteger _score ;
+}
+
+@end
 @implementation Move
 
 - (instancetype)init {
     if (self = [super init]) {
         self.figure = Empty ;
-        self.score = 0 ;
         self.index = 0 ;
     }
     return self ;
@@ -35,7 +39,7 @@
     } else {
         figure = @"Empty" ;
     }
-    return [NSString stringWithFormat:@"Move figure %@, index %ld, score %ld", figure, (long)self.index, (long)self.score] ;
+    return [NSString stringWithFormat:@"Move figure %@, index %ld, score %ld", figure, (long)self.index, (long)_score] ;
 }
 
 - (NSString *)caption {

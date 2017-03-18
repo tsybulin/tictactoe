@@ -26,7 +26,7 @@
 
 - (void)resetBoard {
     for (Move *move in self.board) {
-        move.score = 0 ;
+//        move.score = 0 ;
         move.figure = Empty ;
     }
 }

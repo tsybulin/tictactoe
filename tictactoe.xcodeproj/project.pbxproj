@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C428CEDC1E7C40F500EDDCC5 /* NetworkGame.m in Sources */ = {isa = PBXBuildFile; fileRef = C428CEDB1E7C40F500EDDCC5 /* NetworkGame.m */; };
-		C44908011E799DC50068E3BE /* WatchGame.m in Sources */ = {isa = PBXBuildFile; fileRef = C44908001E799DC50068E3BE /* WatchGame.m */; };
+		C43B89DA1E7D886F00FD3478 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B89CD1E7D886F00FD3478 /* Game.m */; };
+		C43B89DB1E7D886F00FD3478 /* Move.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B89CF1E7D886F00FD3478 /* Move.m */; };
+		C43B89DC1E7D886F00FD3478 /* Move+Score.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B89D11E7D886F00FD3478 /* Move+Score.m */; };
+		C43B89DD1E7D886F00FD3478 /* NetworkGame.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B89D31E7D886F00FD3478 /* NetworkGame.m */; };
+		C43B89DE1E7D886F00FD3478 /* PairGame.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B89D51E7D886F00FD3478 /* PairGame.m */; };
+		C43B89DF1E7D886F00FD3478 /* SingleGame.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B89D71E7D886F00FD3478 /* SingleGame.m */; };
+		C43B89E01E7D886F00FD3478 /* WatchGame.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B89D91E7D886F00FD3478 /* WatchGame.m */; };
+		C43B89E11E7D88AA00FD3478 /* Move.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B89CF1E7D886F00FD3478 /* Move.m */; };
+		C43B89E21E7D88B400FD3478 /* SingleGame.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B89D71E7D886F00FD3478 /* SingleGame.m */; };
+		C43B89E31E7D88C300FD3478 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B89CD1E7D886F00FD3478 /* Game.m */; };
 		C44908041E79AF040068E3BE /* ModeController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44908031E79AF040068E3BE /* ModeController.m */; };
-		C46F13A11E7AD8CD000BD1D3 /* SingleGame.m in Sources */ = {isa = PBXBuildFile; fileRef = C46F13A01E7AD8CD000BD1D3 /* SingleGame.m */; };
-		C46F13A21E7AF224000BD1D3 /* SingleGame.m in Sources */ = {isa = PBXBuildFile; fileRef = C46F13A01E7AD8CD000BD1D3 /* SingleGame.m */; };
 		C46F13A51E7AFA48000BD1D3 /* WEModeController.m in Sources */ = {isa = PBXBuildFile; fileRef = C46F13A41E7AFA48000BD1D3 /* WEModeController.m */; };
 		C47A558B1E75C65C0014249C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C47A558A1E75C65C0014249C /* main.m */; };
 		C47A558E1E75C65C0014249C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C47A558D1E75C65C0014249C /* AppDelegate.m */; };
@@ -19,8 +25,6 @@
 		C47A55941E75C65C0014249C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47A55921E75C65C0014249C /* Main.storyboard */; };
 		C47A55961E75C65C0014249C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C47A55951E75C65C0014249C /* Assets.xcassets */; };
 		C47A55991E75C65C0014249C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47A55971E75C65C0014249C /* LaunchScreen.storyboard */; };
-		C47A55A31E75C7640014249C /* Move.m in Sources */ = {isa = PBXBuildFile; fileRef = C47A55A21E75C7640014249C /* Move.m */; };
-		C47A55A61E75C8910014249C /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = C47A55A51E75C8910014249C /* Game.m */; };
 		C47A55B01E76AC1C0014249C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47A55AE1E76AC1C0014249C /* Interface.storyboard */; };
 		C47A55B21E76AC1C0014249C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C47A55B11E76AC1C0014249C /* Assets.xcassets */; };
 		C47A55B91E76AC1D0014249C /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C47A55B81E76AC1C0014249C /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -28,9 +32,6 @@
 		C47A55C21E76AC1D0014249C /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C47A55C11E76AC1D0014249C /* ExtensionDelegate.m */; };
 		C47A55C41E76AC1D0014249C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C47A55C31E76AC1D0014249C /* Assets.xcassets */; };
 		C47A55C81E76AC1D0014249C /* Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C47A55AC1E76AC1C0014249C /* Watch.app */; };
-		C47A55D11E76B7040014249C /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = C47A55A51E75C8910014249C /* Game.m */; };
-		C47A55D21E76B7120014249C /* Move.m in Sources */ = {isa = PBXBuildFile; fileRef = C47A55A21E75C7640014249C /* Move.m */; };
-		C48EDB3B1E7B2CFD00DD3D89 /* PairGame.m in Sources */ = {isa = PBXBuildFile; fileRef = C48EDB3A1E7B2CFD00DD3D89 /* PairGame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,14 +77,23 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C428CEDA1E7C40F500EDDCC5 /* NetworkGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkGame.h; sourceTree = "<group>"; };
-		C428CEDB1E7C40F500EDDCC5 /* NetworkGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkGame.m; sourceTree = "<group>"; };
-		C44907FF1E799DC50068E3BE /* WatchGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchGame.h; sourceTree = "<group>"; };
-		C44908001E799DC50068E3BE /* WatchGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchGame.m; sourceTree = "<group>"; };
+		C43B89CB1E7D886F00FD3478 /* Figure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Figure.h; sourceTree = "<group>"; };
+		C43B89CC1E7D886F00FD3478 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		C43B89CD1E7D886F00FD3478 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		C43B89CE1E7D886F00FD3478 /* Move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Move.h; sourceTree = "<group>"; };
+		C43B89CF1E7D886F00FD3478 /* Move.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Move.m; sourceTree = "<group>"; };
+		C43B89D01E7D886F00FD3478 /* Move+Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Move+Score.h"; sourceTree = "<group>"; };
+		C43B89D11E7D886F00FD3478 /* Move+Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Move+Score.m"; sourceTree = "<group>"; };
+		C43B89D21E7D886F00FD3478 /* NetworkGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkGame.h; sourceTree = "<group>"; };
+		C43B89D31E7D886F00FD3478 /* NetworkGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkGame.m; sourceTree = "<group>"; };
+		C43B89D41E7D886F00FD3478 /* PairGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PairGame.h; sourceTree = "<group>"; };
+		C43B89D51E7D886F00FD3478 /* PairGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PairGame.m; sourceTree = "<group>"; };
+		C43B89D61E7D886F00FD3478 /* SingleGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleGame.h; sourceTree = "<group>"; };
+		C43B89D71E7D886F00FD3478 /* SingleGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleGame.m; sourceTree = "<group>"; };
+		C43B89D81E7D886F00FD3478 /* WatchGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchGame.h; sourceTree = "<group>"; };
+		C43B89D91E7D886F00FD3478 /* WatchGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchGame.m; sourceTree = "<group>"; };
 		C44908021E79AF040068E3BE /* ModeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModeController.h; sourceTree = "<group>"; };
 		C44908031E79AF040068E3BE /* ModeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModeController.m; sourceTree = "<group>"; };
-		C46F139F1E7AD8CD000BD1D3 /* SingleGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleGame.h; sourceTree = "<group>"; };
-		C46F13A01E7AD8CD000BD1D3 /* SingleGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleGame.m; sourceTree = "<group>"; };
 		C46F13A31E7AFA48000BD1D3 /* WEModeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEModeController.h; sourceTree = "<group>"; };
 		C46F13A41E7AFA48000BD1D3 /* WEModeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WEModeController.m; sourceTree = "<group>"; };
 		C47A55861E75C65C0014249C /* tictactoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tictactoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,11 +106,6 @@
 		C47A55951E75C65C0014249C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C47A55981E75C65C0014249C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C47A559A1E75C65C0014249C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C47A55A01E75C6CE0014249C /* Figure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Figure.h; sourceTree = "<group>"; };
-		C47A55A11E75C7640014249C /* Move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Move.h; sourceTree = "<group>"; };
-		C47A55A21E75C7640014249C /* Move.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Move.m; sourceTree = "<group>"; };
-		C47A55A41E75C8910014249C /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
-		C47A55A51E75C8910014249C /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		C47A55AC1E76AC1C0014249C /* Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C47A55AF1E76AC1C0014249C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		C47A55B11E76AC1C0014249C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,8 +117,6 @@
 		C47A55C11E76AC1D0014249C /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
 		C47A55C31E76AC1D0014249C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C47A55C51E76AC1D0014249C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C48EDB391E7B2CFD00DD3D89 /* PairGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PairGame.h; sourceTree = "<group>"; };
-		C48EDB3A1E7B2CFD00DD3D89 /* PairGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PairGame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,21 +140,23 @@
 		C428CED91E7C2F3600EDDCC5 /* game */ = {
 			isa = PBXGroup;
 			children = (
-				C47A55A01E75C6CE0014249C /* Figure.h */,
-				C47A55A11E75C7640014249C /* Move.h */,
-				C47A55A21E75C7640014249C /* Move.m */,
-				C47A55A41E75C8910014249C /* Game.h */,
-				C47A55A51E75C8910014249C /* Game.m */,
-				C46F139F1E7AD8CD000BD1D3 /* SingleGame.h */,
-				C46F13A01E7AD8CD000BD1D3 /* SingleGame.m */,
-				C44907FF1E799DC50068E3BE /* WatchGame.h */,
-				C44908001E799DC50068E3BE /* WatchGame.m */,
-				C48EDB391E7B2CFD00DD3D89 /* PairGame.h */,
-				C48EDB3A1E7B2CFD00DD3D89 /* PairGame.m */,
-				C428CEDA1E7C40F500EDDCC5 /* NetworkGame.h */,
-				C428CEDB1E7C40F500EDDCC5 /* NetworkGame.m */,
+				C43B89CB1E7D886F00FD3478 /* Figure.h */,
+				C43B89CC1E7D886F00FD3478 /* Game.h */,
+				C43B89CD1E7D886F00FD3478 /* Game.m */,
+				C43B89CE1E7D886F00FD3478 /* Move.h */,
+				C43B89CF1E7D886F00FD3478 /* Move.m */,
+				C43B89D01E7D886F00FD3478 /* Move+Score.h */,
+				C43B89D11E7D886F00FD3478 /* Move+Score.m */,
+				C43B89D21E7D886F00FD3478 /* NetworkGame.h */,
+				C43B89D31E7D886F00FD3478 /* NetworkGame.m */,
+				C43B89D41E7D886F00FD3478 /* PairGame.h */,
+				C43B89D51E7D886F00FD3478 /* PairGame.m */,
+				C43B89D61E7D886F00FD3478 /* SingleGame.h */,
+				C43B89D71E7D886F00FD3478 /* SingleGame.m */,
+				C43B89D81E7D886F00FD3478 /* WatchGame.h */,
+				C43B89D91E7D886F00FD3478 /* WatchGame.m */,
 			);
-			name = game;
+			path = game;
 			sourceTree = "<group>";
 		};
 		C44908051E79B20E0068E3BE /* Frameworks */ = {
@@ -376,16 +381,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C47A55A61E75C8910014249C /* Game.m in Sources */,
-				C47A55A31E75C7640014249C /* Move.m in Sources */,
-				C46F13A11E7AD8CD000BD1D3 /* SingleGame.m in Sources */,
+				C43B89DA1E7D886F00FD3478 /* Game.m in Sources */,
 				C47A55911E75C65C0014249C /* GameController.m in Sources */,
-				C428CEDC1E7C40F500EDDCC5 /* NetworkGame.m in Sources */,
 				C47A558E1E75C65C0014249C /* AppDelegate.m in Sources */,
+				C43B89E01E7D886F00FD3478 /* WatchGame.m in Sources */,
 				C44908041E79AF040068E3BE /* ModeController.m in Sources */,
+				C43B89DD1E7D886F00FD3478 /* NetworkGame.m in Sources */,
+				C43B89DF1E7D886F00FD3478 /* SingleGame.m in Sources */,
+				C43B89DC1E7D886F00FD3478 /* Move+Score.m in Sources */,
+				C43B89DB1E7D886F00FD3478 /* Move.m in Sources */,
 				C47A558B1E75C65C0014249C /* main.m in Sources */,
-				C44908011E799DC50068E3BE /* WatchGame.m in Sources */,
-				C48EDB3B1E7B2CFD00DD3D89 /* PairGame.m in Sources */,
+				C43B89DE1E7D886F00FD3478 /* PairGame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,10 +399,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C46F13A21E7AF224000BD1D3 /* SingleGame.m in Sources */,
-				C47A55D21E76B7120014249C /* Move.m in Sources */,
+				C43B89E21E7D88B400FD3478 /* SingleGame.m in Sources */,
+				C43B89E11E7D88AA00FD3478 /* Move.m in Sources */,
 				C46F13A51E7AFA48000BD1D3 /* WEModeController.m in Sources */,
-				C47A55D11E76B7040014249C /* Game.m in Sources */,
+				C43B89E31E7D88C300FD3478 /* Game.m in Sources */,
 				C47A55C21E76AC1D0014249C /* ExtensionDelegate.m in Sources */,
 				C47A55BF1E76AC1D0014249C /* WEGameController.m in Sources */,
 			);

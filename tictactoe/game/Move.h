@@ -13,7 +13,6 @@
 
 @property (nonatomic) Figure figure ;
 @property (nonatomic) NSInteger index ;
-@property (nonatomic) NSInteger score ;
 
 + (instancetype)moveWithIndex:(NSInteger)index andFigure:(Figure)figure ;
 - (NSString *)caption ;
