@@ -43,8 +43,8 @@
     
     imgs = @[
         [UIImage imageNamed:@"empty"],
-        [UIImage imageNamed:@"human"],
-        [UIImage imageNamed:@"computer"]
+        [UIImage imageNamed:@"zero"],
+        [UIImage imageNamed:@"cross"]
     ] ;
 
     [self updateBoard] ;

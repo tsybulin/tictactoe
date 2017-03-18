@@ -46,7 +46,7 @@
         self.cell6, self.cell7, self.cell8,
     ] ;
 
-    imgs = @[@"wempty", @"whuman", @"wcomputer"] ;
+    imgs = @[@"wempty", @"wzero", @"wcross"] ;
     
     [self updateBoard] ;
     
