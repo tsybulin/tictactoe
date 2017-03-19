@@ -61,7 +61,7 @@
 }
 
 + (TranspDict *)transpDictStop {
-    return @{TD_ACTION : TD_RESET} ;
+    return @{TD_ACTION : TD_STOP} ;
 }
 
 @end

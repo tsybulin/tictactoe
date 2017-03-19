@@ -20,15 +20,12 @@
 }
 
 - (void)player:(Player *)player didMoveTo:(NSInteger)index {
-    if (player == self) {
-        [self.game.board objectAtIndex:index].figure = self.figure ;
-    }
 }
 
 - (void)playerDidReset:(Player *)player {
-    if (player == self) {
-        [self.game resetBoard] ;
-    }
+}
+
+- (void)player:(Player *)player didChangeState:(BOOL)state {
 }
 
 @end

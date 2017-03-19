@@ -92,8 +92,12 @@
 }
 
 - (void)player:(Player *)player didMoveTo:(NSInteger)index {
+    [self.board objectAtIndex:index].figure = player.figure ;
+
     for (Player *p in players) {
-        [p player:player didMoveTo:index] ;
+        if (p != player) {
+            [p player:player didMoveTo:index] ;
+        }
     }
     
     if (self.delegate) {
@@ -102,16 +106,26 @@
 }
 
 - (void)playerDidReset:(Player *)player {
-    for (Player *p in players) {
-        [p playerDidReset:player] ;
-    }
+    [self resetBoard] ;
     
+    for (Player *p in players) {
+        if (p != player) {
+            [p playerDidReset:player] ;
+        }
+    }
+
     if (self.delegate) {
         [self.delegate game:self playerDidReset:player] ;
     }
 }
 
 - (void)player:(Player *)player didChangeState:(BOOL)state {
+    for (Player *p in players) {
+        if (p != player) {
+            [p player:player didChangeState:state] ;
+        }
+    }
+    
     if (self.delegate) {
         [self.delegate game:self player:player didChangeState:state] ;
     }

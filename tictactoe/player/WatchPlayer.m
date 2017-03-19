@@ -30,33 +30,37 @@
 }
 
 - (void)playerDidReset:(Player *)player {
-    if (player == self) {
-        [self.game resetBoard] ;
-    } else {
-        if ([WCSession isSupported]) {
-            WCSession *session = [WCSession defaultSession] ;
-            if ([session isPaired] && [session isWatchAppInstalled]) {
-                TranspDict *dict = [Move transpDictReset] ;
-                [session sendMessage:dict replyHandler:nil errorHandler:^(NSError * _Nonnull error) {
-                    NSLog(@"playerDidReset sendMessage error %@", error) ;
-                }] ;
-            }
+    if ([WCSession isSupported]) {
+        WCSession *session = [WCSession defaultSession] ;
+        if ([session isPaired] && [session isWatchAppInstalled]) {
+            TranspDict *dict = [Move transpDictReset] ;
+            [session sendMessage:dict replyHandler:nil errorHandler:^(NSError * _Nonnull error) {
+                NSLog(@"playerDidReset sendMessage error %@", error) ;
+            }] ;
         }
     }
 }
 
 - (void)player:(Player *)player didMoveTo:(NSInteger)index {
-    if (player == self) {
-        [self.game.board objectAtIndex:index].figure = self.figure ;
-    } else {
-        if ([WCSession isSupported]) {
-            WCSession *session = [WCSession defaultSession] ;
-            if ([session isPaired] && [session isWatchAppInstalled]) {
-                TranspDict *dict = [[Move moveWithIndex:index andFigure:player.figure] transpDict] ;
-                [session sendMessage:dict replyHandler:nil errorHandler:^(NSError * _Nonnull error) {
-                    NSLog(@"playerDidMoveTo sendMessage error %@", error) ;
-                }] ;
-            }
+    if ([WCSession isSupported]) {
+        WCSession *session = [WCSession defaultSession] ;
+        if ([session isPaired] && [session isWatchAppInstalled]) {
+            TranspDict *dict = [[Move moveWithIndex:index andFigure:player.figure] transpDict] ;
+            [session sendMessage:dict replyHandler:nil errorHandler:^(NSError * _Nonnull error) {
+                NSLog(@"playerDidMoveTo sendMessage error %@", error) ;
+            }] ;
+        }
+    }
+}
+
+- (void)player:(Player *)player didChangeState:(BOOL)state {
+    if ([WCSession isSupported]) {
+        WCSession *session = [WCSession defaultSession] ;
+        if ([session isPaired] && [session isWatchAppInstalled] && !state) {
+            TranspDict *dict = [Move transpDictStop] ;
+            [session sendMessage:dict replyHandler:nil errorHandler:^(NSError * _Nonnull error) {
+                NSLog(@"playerDidReset sendMessage error %@", error) ;
+            }] ;
         }
     }
 }

@@ -28,4 +28,8 @@
     [self doesNotRecognizeSelector:_cmd] ;
 }
 
+- (void)player:(Player *)player didChangeState:(BOOL)state {
+    [self doesNotRecognizeSelector:_cmd] ;
+}
+
 @end

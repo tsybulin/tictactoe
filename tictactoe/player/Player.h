@@ -22,5 +22,6 @@
 - (instancetype)initWithFigure:(Figure)figure name:(NSString *)name NS_DESIGNATED_INITIALIZER ;
 - (void)player:(Player *)player didMoveTo:(NSInteger)index ;
 - (void)playerDidReset:(Player *)player ;
+- (void)player:(Player *)player didChangeState:(BOOL)state ;
 
 @end

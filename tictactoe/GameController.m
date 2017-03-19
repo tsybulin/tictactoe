@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIStackView *svButtons ;
 @property (weak, nonatomic) IBOutlet UIView *viBanner;
 @property (weak, nonatomic) IBOutlet UILabel *lblBanner;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btnReset;
 
 @end
 
@@ -48,9 +49,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated] ;
+
+    self.svButtons.userInteractionEnabled = [self.game currentPlayer].interactive ;
+    self.btnReset.enabled = [self.game currentPlayer].interactive ;
     self.navItem.title = [self.game currentPlayer].name ;
-    
-    
     
 //    if (self.networkGame) {
 //        self.navItem.title = @"Network" ;
@@ -107,13 +109,6 @@
     }
     
     [self.game player:[self.game currentPlayer] didMoveTo:(tag-1)] ;
-}
-
-- (void)resetBoard {
-    [self.game resetBoard] ;
-    [self updateBoard] ;
-    self.svButtons.userInteractionEnabled = YES ;
-    self.viBanner.hidden = YES ;
 }
 
 - (IBAction)onReset:(id)sender {
@@ -182,9 +177,8 @@
         }
         
         [self.game nextPlayer] ;
-        Player *nextPlayer = [self.game currentPlayer] ;
         
-        if (player.interactive && nextPlayer.interactive) {
+        if (player.interactive && [self.game currentPlayer].interactive) {
             CABasicAnimation* rotationAnimation;
             rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
             rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 0.5 ] ;
@@ -195,14 +189,20 @@
             [self.svButtons.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"] ;
         }
         
-        self.svButtons.userInteractionEnabled = nextPlayer.interactive ;
-        self.navItem.title = nextPlayer.name ;
+        self.svButtons.userInteractionEnabled = [self.game currentPlayer].interactive ;
+        self.btnReset.enabled = [self.game currentPlayer].interactive ;
+        self.navItem.title = [self.game currentPlayer].name ;
     }) ;
 }
 
 - (void)game:(Game *)game playerDidReset:(Player *)player {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self resetBoard] ;
+        [self updateBoard] ;
+        self.viBanner.hidden = YES ;
+
+        self.svButtons.userInteractionEnabled = [self.game currentPlayer].interactive ;
+        self.btnReset.enabled = [self.game currentPlayer].interactive ;
+        self.navItem.title = [self.game currentPlayer].name ;
     }) ;
 }
 

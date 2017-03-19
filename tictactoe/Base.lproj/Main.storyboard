@@ -407,6 +407,7 @@ Game</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnReset" destination="Num-wg-DYI" id="BVO-do-rgF"/>
                         <outlet property="lblBanner" destination="Cic-Fo-I3Q" id="RFv-BP-yzb"/>
                         <outlet property="navItem" destination="NWi-Xe-MFm" id="SjC-4s-hc3"/>
                         <outlet property="svButtons" destination="V6g-sv-jn3" id="kzs-JY-ZhB"/>

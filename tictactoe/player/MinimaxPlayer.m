@@ -51,7 +51,7 @@
     
     
     if (availables.count == 0) {
-        return [[Move alloc] init] ;
+        return [Move moveWithIndex:10 andFigure:Empty] ;
     }
     
     NSMutableArray<Move *> *moves = [NSMutableArray arrayWithCapacity:0] ;
@@ -88,21 +88,22 @@
 }
 
 - (void)player:(Player *)player didMoveTo:(NSInteger)index {
-    if (player == self) {
-        [self.game.board objectAtIndex:index].figure = self.figure ;
-    } else if (player != self) {
-        [queue addOperationWithBlock:^{
-            Game *game = [[Game alloc] init] ;
-            for (Move *move in self.game.board) {
-                [game.board objectAtIndex:move.index].figure = move.figure ;
-            }
-            Move *move = [self bestMove:game figure:self.figure] ;
+    [queue addOperationWithBlock:^{
+        Game *game = [[Game alloc] init] ;
+        for (Move *move in self.game.board) {
+            [game.board objectAtIndex:move.index].figure = move.figure ;
+        }
+        Move *move = [self bestMove:game figure:self.figure] ;
+        if (move.figure != Empty) {
             [self.game player:self didMoveTo:move.index] ;
-        }] ;
-    }
+        }
+    }] ;
 }
 
 - (void)playerDidReset:(Player *)player {
+}
+
+- (void)player:(Player *)player didChangeState:(BOOL)state {
 }
 
 @end

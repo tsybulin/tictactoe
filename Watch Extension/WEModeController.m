@@ -7,7 +7,10 @@
 //
 
 #import "WEModeController.h"
-#import "SingleGame.h"
+#import "Game.h"
+#import "LocalPlayer.h"
+#import "MinimaxPlayer.h"
+#import "PhonePlayer.h"
 
 @interface WEModeController ()
 
@@ -33,7 +36,30 @@
 
 - (nullable id)contextForSegueWithIdentifier:(NSString *)segueIdentifier {
     if ([@"SingleGame" isEqualToString:segueIdentifier]) {
-        return @{@"segue" : @"SingleGame", @"singleGame" : [[SingleGame alloc] init]} ;
+        Game *game = [[Game alloc] init] ;
+        
+        Player *human = [[LocalPlayer alloc] initWithFigure:Cross name:@"Human"] ;
+        human.game = game ;
+        [game addPlayer:human] ;
+
+        Player *computer = [[MinimaxPlayer alloc] initWithFigure:Zero name:@"Computer"] ;
+        computer.game = game ;
+        [game addPlayer:computer] ;
+
+        return @{@"segue" : @"SingleGame", @"game" : game} ;
+    } else if ([@"PhoneGame" isEqualToString:segueIdentifier]) {
+        Game *game = [[Game alloc] init] ;
+        
+        Player *phone = [[PhonePlayer alloc] initWithFigure:Zero name:@"Phone"] ;
+        phone.game = game ;
+        [game addPlayer:phone] ;
+
+        Player *human = [[LocalPlayer alloc] initWithFigure:Cross name:@"Human"] ;
+        human.game = game ;
+        [game addPlayer:human] ;
+        
+
+        return @{@"segue" : @"PhoneGame", @"game" : game} ;
     }
     
     return [super contextForSegueWithIdentifier:segueIdentifier] ;
