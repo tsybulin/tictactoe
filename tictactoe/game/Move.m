@@ -64,4 +64,8 @@
     return @{TD_ACTION : TD_STOP} ;
 }
 
++ (TranspDict *)transpDictMove:(NSInteger)index {
+    return @{TD_ACTION : TD_MOVE, TD_INDEX : [NSNumber numberWithLong:index]} ;
+}
+
 @end

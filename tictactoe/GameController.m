@@ -53,37 +53,15 @@
     self.svButtons.userInteractionEnabled = [self.game currentPlayer].interactive ;
     self.btnReset.enabled = [self.game currentPlayer].interactive ;
     self.navItem.title = [self.game currentPlayer].name ;
-    
-//    if (self.networkGame) {
-//        self.navItem.title = @"Network" ;
-//        self.networkGame.delegate = self ;
-//    }
-//    
-//    if (self.networkGame && !self.networkGame.initiated) {
-//        [self.networkGame postInitWithName:[UIDevice currentDevice].name] ;
-//    }
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated] ;
-    
-//    if (self.networkGame && !self.networkGame.paired) {
-//        [self.networkGame pair:self] ;
-//    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [self.game player:[self.game currentPlayer] didChangeState:NO] ;
-//    if (self.networkGame && self.networkGame.network) {
-//        [self.networkGame stop] ;
-//    }
-    
     [super viewWillDisappear:animated] ;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)updateBoard {
@@ -114,39 +92,6 @@
 - (IBAction)onReset:(id)sender {
     [self.game playerDidReset:[self.game currentPlayer]] ;
 }
-
-#pragma mark - <NetworkGameDelegate>
-
-//- (void)networkGame:(NetworkGame *)networkGame didChangeState:(BOOL)network {
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        if (network) {
-//            self.navItem.title = @"Network" ;
-//        } else {
-//            [self.navigationController popViewControllerAnimated:YES] ;
-//        }
-//    }) ;
-//}
-//
-//- (void)networkGame:(NetworkGame *)networkGame didMoveTo:(NSInteger)index {
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        Move *move = [[Move alloc] init] ;
-//        move.figure = Cross ;
-//        move.index = index ;
-//        [self didMove:move] ;
-//    }) ;
-//}
-//
-//- (void)resetFromNetworkGame:(NetworkGame *)networkGame {
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [self resetBoard] ;
-//    }) ;
-//}
-//
-//- (void)stopFromNetworkGame:(NetworkGame *)networkGame {
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [self.navigationController popViewControllerAnimated:YES] ;
-//    }) ;
-//}
 
 #pragma mark - <GameDelegate>
 

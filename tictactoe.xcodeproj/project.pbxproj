@@ -10,7 +10,6 @@
 		C43B89DA1E7D886F00FD3478 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B89CD1E7D886F00FD3478 /* Game.m */; };
 		C43B89DB1E7D886F00FD3478 /* Move.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B89CF1E7D886F00FD3478 /* Move.m */; };
 		C43B89DC1E7D886F00FD3478 /* Move+Score.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B89D11E7D886F00FD3478 /* Move+Score.m */; };
-		C43B89DD1E7D886F00FD3478 /* NetworkGame.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B89D31E7D886F00FD3478 /* NetworkGame.m */; };
 		C43B89E11E7D88AA00FD3478 /* Move.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B89CF1E7D886F00FD3478 /* Move.m */; };
 		C43B89E31E7D88C300FD3478 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B89CD1E7D886F00FD3478 /* Game.m */; };
 		C43EC68A1E7E8260009DDF91 /* Move+Score.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B89D11E7D886F00FD3478 /* Move+Score.m */; };
@@ -22,6 +21,7 @@
 		C43EC69F1E7EFFD8009DDF91 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = C43EC6981E7EFFD1009DDF91 /* Player.m */; };
 		C43EC6A01E7EFFDF009DDF91 /* LocalPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C43EC6941E7EFFD1009DDF91 /* LocalPlayer.m */; };
 		C43EC6A11E7EFFE4009DDF91 /* MinimaxPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C43EC6961E7EFFD1009DDF91 /* MinimaxPlayer.m */; };
+		C43EC6A71E7F01FD009DDF91 /* NetworkPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C43EC6A61E7F01FD009DDF91 /* NetworkPlayer.m */; };
 		C44908041E79AF040068E3BE /* ModeController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44908031E79AF040068E3BE /* ModeController.m */; };
 		C46F13A51E7AFA48000BD1D3 /* WEModeController.m in Sources */ = {isa = PBXBuildFile; fileRef = C46F13A41E7AFA48000BD1D3 /* WEModeController.m */; };
 		C47A558B1E75C65C0014249C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C47A558A1E75C65C0014249C /* main.m */; };
@@ -89,8 +89,6 @@
 		C43B89CF1E7D886F00FD3478 /* Move.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Move.m; sourceTree = "<group>"; };
 		C43B89D01E7D886F00FD3478 /* Move+Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Move+Score.h"; sourceTree = "<group>"; };
 		C43B89D11E7D886F00FD3478 /* Move+Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Move+Score.m"; sourceTree = "<group>"; };
-		C43B89D21E7D886F00FD3478 /* NetworkGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkGame.h; sourceTree = "<group>"; };
-		C43B89D31E7D886F00FD3478 /* NetworkGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkGame.m; sourceTree = "<group>"; };
 		C43EC68F1E7E9667009DDF91 /* PhonePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhonePlayer.h; sourceTree = "<group>"; };
 		C43EC6901E7E9667009DDF91 /* PhonePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhonePlayer.m; sourceTree = "<group>"; };
 		C43EC6941E7EFFD1009DDF91 /* LocalPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalPlayer.m; sourceTree = "<group>"; };
@@ -101,6 +99,8 @@
 		C43EC6A21E7F0127009DDF91 /* LocalPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalPlayer.h; sourceTree = "<group>"; };
 		C43EC6A31E7F0127009DDF91 /* MinimaxPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MinimaxPlayer.h; sourceTree = "<group>"; };
 		C43EC6A41E7F0127009DDF91 /* WatchPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WatchPlayer.h; sourceTree = "<group>"; };
+		C43EC6A51E7F01FD009DDF91 /* NetworkPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkPlayer.h; sourceTree = "<group>"; };
+		C43EC6A61E7F01FD009DDF91 /* NetworkPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkPlayer.m; sourceTree = "<group>"; };
 		C44908021E79AF040068E3BE /* ModeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModeController.h; sourceTree = "<group>"; };
 		C44908031E79AF040068E3BE /* ModeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModeController.m; sourceTree = "<group>"; };
 		C46F13A31E7AFA48000BD1D3 /* WEModeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEModeController.h; sourceTree = "<group>"; };
@@ -156,8 +156,6 @@
 				C43B89CF1E7D886F00FD3478 /* Move.m */,
 				C43B89D01E7D886F00FD3478 /* Move+Score.h */,
 				C43B89D11E7D886F00FD3478 /* Move+Score.m */,
-				C43B89D21E7D886F00FD3478 /* NetworkGame.h */,
-				C43B89D31E7D886F00FD3478 /* NetworkGame.m */,
 			);
 			path = game;
 			sourceTree = "<group>";
@@ -182,6 +180,8 @@
 				C43EC6961E7EFFD1009DDF91 /* MinimaxPlayer.m */,
 				C43EC6A41E7F0127009DDF91 /* WatchPlayer.h */,
 				C43EC69A1E7EFFD1009DDF91 /* WatchPlayer.m */,
+				C43EC6A51E7F01FD009DDF91 /* NetworkPlayer.h */,
+				C43EC6A61E7F01FD009DDF91 /* NetworkPlayer.m */,
 			);
 			path = player;
 			sourceTree = "<group>";
@@ -415,12 +415,12 @@
 				C43EC69C1E7EFFD1009DDF91 /* MinimaxPlayer.m in Sources */,
 				C47A558E1E75C65C0014249C /* AppDelegate.m in Sources */,
 				C44908041E79AF040068E3BE /* ModeController.m in Sources */,
-				C43B89DD1E7D886F00FD3478 /* NetworkGame.m in Sources */,
 				C43EC69D1E7EFFD1009DDF91 /* Player.m in Sources */,
 				C43B89DC1E7D886F00FD3478 /* Move+Score.m in Sources */,
 				C43EC69E1E7EFFD1009DDF91 /* WatchPlayer.m in Sources */,
 				C43B89DB1E7D886F00FD3478 /* Move.m in Sources */,
 				C47A558B1E75C65C0014249C /* main.m in Sources */,
+				C43EC6A71E7F01FD009DDF91 /* NetworkPlayer.m in Sources */,
 				C43EC69B1E7EFFD1009DDF91 /* LocalPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

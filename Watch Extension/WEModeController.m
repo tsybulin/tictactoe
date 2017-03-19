@@ -38,7 +38,7 @@
     if ([@"SingleGame" isEqualToString:segueIdentifier]) {
         Game *game = [[Game alloc] init] ;
         
-        Player *human = [[LocalPlayer alloc] initWithFigure:Cross name:@"Human"] ;
+        Player *human = [[LocalPlayer alloc] initWithFigure:Cross name:@"You"] ;
         human.game = game ;
         [game addPlayer:human] ;
 
@@ -54,7 +54,7 @@
         phone.game = game ;
         [game addPlayer:phone] ;
 
-        Player *human = [[LocalPlayer alloc] initWithFigure:Cross name:@"Human"] ;
+        Player *human = [[LocalPlayer alloc] initWithFigure:Cross name:@"You"] ;
         human.game = game ;
         [game addPlayer:human] ;
         

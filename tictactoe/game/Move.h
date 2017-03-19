@@ -28,5 +28,6 @@ typedef NSDictionary<NSString *, id> TranspDict ;
 - (TranspDict *)transpDict ;
 + (TranspDict *)transpDictReset ;
 + (TranspDict *)transpDictStop ;
++ (TranspDict *)transpDictMove:(NSInteger)index ;
 
 @end
