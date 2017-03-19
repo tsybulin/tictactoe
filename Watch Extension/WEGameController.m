@@ -8,11 +8,9 @@
 
 #import "WEGameController.h"
 #import "Game.h"
-#import <WatchConnectivity/WatchConnectivity.h>
 
-@interface WEGameController() <SingleGameDelegate, WCSessionDelegate> {
+@interface WEGameController() <GameDelegate> {
     NSArray<NSString *> *imgs ;
-    Game *game ;
     NSArray<WKInterfaceButton *> *cells ;
 }
 
@@ -39,44 +37,51 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
 
-    game = [[Game alloc] init] ;
     cells = @[
         self.cell0, self.cell1, self.cell2,
         self.cell3, self.cell4, self.cell5,
         self.cell6, self.cell7, self.cell8,
     ] ;
 
-    imgs = @[@"wempty", @"whuman", @"wcomputer"] ;
-    
-    [self updateBoard] ;
+    imgs = @[@"wempty", @"wzero", @"wcross"] ;
     
     if (context) {
         if ([@"SingleGame" isEqualToString:[context objectForKey:@"segue"]]) {
-            self.singleGame = [context objectForKey:@"singleGame"] ;
-        } else {
-            self.singleGame = nil ;
+            self.game = [context objectForKey:@"game"] ;
+        } else if ([@"PhoneGame" isEqualToString:[context objectForKey:@"segue"]]) {
+            self.game = [context objectForKey:@"game"] ;
         }
     }
+    
+    self.game.delegate = self ;
+
+    [self updateBoard] ;
 }
 
 - (void)willActivate {
     [super willActivate] ;
     
-    if (self.singleGame) {
-        [self.lblMode setText:@"Single"] ;
-        self.singleGame.game = game ;
-        self.singleGame.delegate = self ;
-    } else {
-        [self.lblMode setText:@"iPhone"] ;
-        
-        if ([WCSession isSupported]) {
-            WCSession *wcsession = [WCSession defaultSession] ;
-            wcsession.delegate = self ;
-            [wcsession activateSession] ;
-        } else {
-            [self.lblMode setText:@"Single"] ;
-        }
+    self.self.lblMode.text = [self.game currentPlayer].name ;
+
+    for (WKInterfaceButton *button in cells) {
+        [button setEnabled:[self.game currentPlayer].interactive] ;
     }
+    
+    //    if (self.singleGame) {
+//        [self.lblMode setText:@"Single"] ;
+//        self.singleGame.game = game ;
+//        self.singleGame.delegate = self ;
+//    } else {
+//        [self.lblMode setText:@"iPhone"] ;
+//        
+//        if ([WCSession isSupported]) {
+//            WCSession *wcsession = [WCSession defaultSession] ;
+//            wcsession.delegate = self ;
+//            [wcsession activateSession] ;
+//        } else {
+//            [self.lblMode setText:@"Single"] ;
+//        }
+//    }
 }
 
 - (void)didDeactivate {
@@ -85,21 +90,14 @@
 }
 
 - (void)updateBoard {
-    for (Move *move in game.board) {
+    for (Move *move in self.game.board) {
         WKInterfaceButton *button = [cells objectAtIndex:move.index] ;
-        [button setBackgroundImageNamed:[imgs objectAtIndex:move.player]] ;
+        [button setBackgroundImageNamed:[imgs objectAtIndex:move.figure]] ;
     }
 }
 
-- (void)showBanner:(Player)player {
-    if (player == Empty) {
-        self.lblBanner.text = @"Tie" ;
-    } else if (player == Human) {
-        self.lblBanner.text = @"You won" ;
-    } else {
-        self.lblBanner.text = @"You lose" ;
-    }
-    
+- (void)showBanner:(NSString *)banner {
+    self.lblBanner.text = banner ;
     self.viBanner.hidden = NO ;
 }
 
@@ -140,144 +138,64 @@
 }
 
 - (void)onHuman:(NSInteger)tag {
-    if ([game.board objectAtIndex:tag].player != Empty) {
+    if ([self.game.board objectAtIndex:tag].figure != Empty) {
         return ;
     }
 
-    [game.board objectAtIndex:tag].player = Human ;
-    [self updateBoard] ;
-    
-    for (WKInterfaceButton *button in cells) {
-        [button setEnabled:NO] ;
-    }
-    
-    if (!self.singleGame) {
-        if ([WCSession isSupported]) {
-        WCSession *session = [WCSession defaultSession] ;
-            if ([session isReachable]) {
-                [session sendMessage:@{@"action": @"move", @"index" : [NSNumber numberWithLong:tag]} replyHandler:nil errorHandler:^(NSError * _Nonnull error) {
-                    NSLog(@"WCSession sendMessage error %@", error) ;
-                }] ;
-            } else {
-                NSError *error = nil ;
-                [session updateApplicationContext:@{@"action": @"move", @"index" : [NSNumber numberWithLong:tag]} error:&error] ;
-                if (error) {
-                    NSLog(@"WCSession updateApplicationContext error %@", error) ;
-                }
-            }
-        }
-    }
-    
-    if ([game isWinningForPlayer:Human]) {
-        [self showBanner:Human] ;
-        return ;
-    }
-    
-    if ([game isFinished]) {
-        [self showBanner:Empty] ;
-        return ;
-    }
-    
-    if (self.singleGame) {
-        [self.singleGame move] ;
-    }
-}
-
-- (void)resetBoard {
-    [game resetBoard] ;
-    
-    [self updateBoard] ;
-    
-    for (WKInterfaceButton *button in cells) {
-        [button setEnabled:YES] ;
-    }
-    
-    self.viBanner.hidden = YES ;
+    [self.game player:[self.game currentPlayer] didMoveTo:tag] ;
 }
 
 - (IBAction)onReset {
-    [self resetBoard] ;
-    
-    if (!self.singleGame) {
-        if ([WCSession isSupported]) {
-            WCSession *session = [WCSession defaultSession] ;
-            if ([session isReachable]) {
-                [session sendMessage:@{@"action": @"reset"} replyHandler:nil errorHandler:^(NSError * _Nonnull error) {
-                    NSLog(@"WCSession sendMessage error %@", error) ;
-                }] ;
-            } else {
-                NSError *error = nil ;
-                [session updateApplicationContext:@{@"action": @"reset"} error:&error] ;
-                if (error) {
-                    NSLog(@"WCSession updateApplicationContext error %@", error) ;
-                }
-            }
-        }
-    }
-    
+    [self.game playerDidReset:[self.game currentPlayer]] ;
 }
 
-#pragma mark <SingleGameDelegate>
+#pragma mark - <GameDelegate>
 
-- (void)didMove:(Move *)move {
-    [game.board objectAtIndex:move.index].player = move.player ;
-    [self updateBoard] ;
-    
-    if ([game isWinningForPlayer:Computer]) {
-        [self showBanner:Computer] ;
-        return ;
-    }
-    
-    if ([game isFinished]) {
-        [self showBanner:Empty] ;
-        return ;
-    }
-
-    for (WKInterfaceButton *button in cells) {
-        [button setEnabled:YES] ;
-    }
-}
-
-#pragma mark <WCSessionDelegate>
-
-- (void)session:(WCSession *)session activationDidCompleteWithState:(WCSessionActivationState)activationState error:(nullable NSError *)error {
-    
-}
-
-- (void)sessionDidBecomeInactive:(WCSession *)session {
-    
-}
-
-- (void)sessionDidDeactivate:(WCSession *)session {
-    [self dismissController] ;
-}
-
-- (void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *, id> *)message {
-    NSString *action = [message objectForKey:@"action"] ;
-    if (action) {
-        if ([@"start" isEqualToString:action]) {
+- (void)game:(Game *)game player:(Player *)player didMoveTo:(NSInteger)index {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self updateBoard] ;
+        
+        if ([self.game isWinningForFigure:player.figure]) {
+            [self showBanner:[player.name stringByAppendingString:@" won"]] ;
             return ;
         }
         
-        if ([@"stop" isEqualToString:action]) {
+        if ([self.game isFinished]) {
+            [self showBanner:@"Tie"] ;
+            return ;
+        }
+
+        [self.game nextPlayer] ;
+        Player *nextPlayer = [self.game currentPlayer] ;
+
+        for (WKInterfaceButton *button in cells) {
+            [button setEnabled:nextPlayer.interactive] ;
+        }
+
+        self.self.lblMode.text = nextPlayer.name ;
+    }) ;
+}
+
+- (void)game:(Game *)game playerDidReset:(Player *)player {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self updateBoard] ;
+        self.viBanner.hidden = YES ;
+        self.self.lblMode.text = [self.game currentPlayer].name ;
+        
+        for (WKInterfaceButton *button in cells) {
+            [button setEnabled:[self.game currentPlayer].interactive] ;
+        }
+    }) ;
+}
+
+- (void)game:(Game *)game player:(Player *)player didChangeState:(BOOL)state {
+    if (!state) {
+        dispatch_async(dispatch_get_main_queue(), ^{
             [self popController] ;
-            return ;
-        }
-
-        if ([@"reset" isEqualToString:action]) {
-            [self resetBoard] ;
-            return ;
-        }
-
-        if ([@"move" isEqualToString:action]) {
-            Move *move = [[Move alloc] init] ;
-            move.player = Computer ;
-            move.index = [[message objectForKey:@"index"] longValue] ;
-            
-            [self didMove:move] ;
-        }
+        }) ;
     }
 }
+
 
 @end
 

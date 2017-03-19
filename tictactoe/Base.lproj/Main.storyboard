@@ -51,9 +51,6 @@
                                                 <state key="normal" backgroundImage="empty">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="onHuman:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o2z-r1-OHK"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="uLS-ik-ajR">
                                                 <rect key="frame" x="97" y="0.0" width="84.5" height="85"/>
@@ -67,7 +64,6 @@ Game</string>
                                                     <fontDescription key="fontDescription" type="system" weight="black" pointSize="36"/>
                                                 </variation>
                                                 <connections>
-                                                    <action selector="onHuman:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ynP-rA-mYp"/>
                                                     <segue destination="BYZ-38-t0r" kind="show" identifier="SingleGame" id="AvE-Mm-nSh"/>
                                                 </connections>
                                             </button>
@@ -77,9 +73,6 @@ Game</string>
                                                 <state key="normal" backgroundImage="empty">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="onHuman:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gpi-Yc-N4K"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.93092948720000002" blue="0.071746038619999994" alpha="1" colorSpace="calibratedRGB"/>
@@ -99,9 +92,6 @@ Game</string>
                                                 <state key="normal" backgroundImage="empty">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="onHuman:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0fK-J1-qnx"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="8DM-aF-d9o">
                                                 <rect key="frame" x="97" y="0.0" width="84.5" height="84.5"/>
@@ -115,7 +105,6 @@ Game</string>
                                                     <fontDescription key="fontDescription" type="system" weight="black" pointSize="36"/>
                                                 </variation>
                                                 <connections>
-                                                    <action selector="onHuman:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LiK-Ks-OVP"/>
                                                     <segue destination="BYZ-38-t0r" kind="show" identifier="PairGame" id="1qE-ep-rK6"/>
                                                 </connections>
                                             </button>
@@ -131,8 +120,7 @@ Game</string>
                                                     <fontDescription key="fontDescription" type="system" weight="black" pointSize="36"/>
                                                 </variation>
                                                 <connections>
-                                                    <action selector="onHuman:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xLZ-Ps-Yrn"/>
-                                                    <segue destination="BYZ-38-t0r" kind="show" identifier="NetworkGame" id="iyt-IV-uKX"/>
+                                                    <action selector="onNetworkGame:" destination="Wik-k1-EJR" eventType="touchUpInside" id="cDB-b1-CWx"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -152,9 +140,6 @@ Game</string>
                                                 <state key="normal" backgroundImage="empty">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="onHuman:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j0n-xR-PZj"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="yLz-ZJ-NEI">
                                                 <rect key="frame" x="97" y="0.0" width="84.5" height="84.5"/>
@@ -168,7 +153,6 @@ Game</string>
                                                     <fontDescription key="fontDescription" type="system" weight="black" pointSize="36"/>
                                                 </variation>
                                                 <connections>
-                                                    <action selector="onHuman:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PbP-mp-Wvx"/>
                                                     <segue destination="BYZ-38-t0r" kind="show" identifier="WatchGame" id="wj5-3k-4m2"/>
                                                 </connections>
                                             </button>
@@ -178,9 +162,6 @@ Game</string>
                                                 <state key="normal" backgroundImage="empty">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="onHuman:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LWh-Er-mJE"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -211,6 +192,9 @@ Game</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Mode" id="dB7-xQ-Kjy"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="NetworkGame" id="wku-ds-CWA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zfy-m1-xpT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -407,6 +391,7 @@ Game</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnReset" destination="Num-wg-DYI" id="BVO-do-rgF"/>
                         <outlet property="lblBanner" destination="Cic-Fo-I3Q" id="RFv-BP-yzb"/>
                         <outlet property="navItem" destination="NWi-Xe-MFm" id="SjC-4s-hc3"/>
                         <outlet property="svButtons" destination="V6g-sv-jn3" id="kzs-JY-ZhB"/>
@@ -422,6 +407,6 @@ Game</string>
         <image name="empty" width="96" height="96"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iyt-IV-uKX"/>
+        <segue reference="wku-ds-CWA"/>
     </inferredMetricsTieBreakers>
 </document>

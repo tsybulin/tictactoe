@@ -8,10 +8,10 @@
 
 #import <WatchKit/WatchKit.h>
 #import <Foundation/Foundation.h>
-#import "SingleGame.h"
+#import "Game.h"
 
 @interface WEGameController : WKInterfaceController
 
-@property (nonatomic, strong) SingleGame *singleGame ;
+@property (nonatomic, strong) Game *game ;
 
 @end

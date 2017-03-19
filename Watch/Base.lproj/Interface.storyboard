@@ -23,7 +23,7 @@
                                 </button>
                                 <button width="1" alignment="left" title="iPhone" id="oov-GO-lHR">
                                     <connections>
-                                        <segue destination="AgC-eL-Hgc" kind="push" id="mBf-wS-hNu"/>
+                                        <segue destination="AgC-eL-Hgc" kind="push" identifier="PhoneGame" id="mBf-wS-hNu"/>
                                     </connections>
                                 </button>
                             </items>
