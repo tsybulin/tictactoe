@@ -9,7 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "Figure.h"
 
-@interface Move : NSObject {
+typedef NSDictionary<NSString *, id> TranspDict ;
+#define TD_ACTION @"action"
+#define TD_MOVE @"move"
+#define TD_INDEX @"index"
+#define TD_RESET @"reset"
+#define TD_STOP @"stop"
+
+@interface Move : NSObject <NSCopying> {
     NSInteger _score ;
 }
 
@@ -18,5 +25,8 @@
 
 + (instancetype)moveWithIndex:(NSInteger)index andFigure:(Figure)figure ;
 - (NSString *)caption ;
+- (TranspDict *)transpDict ;
++ (TranspDict *)transpDictReset ;
++ (TranspDict *)transpDictStop ;
 
 @end

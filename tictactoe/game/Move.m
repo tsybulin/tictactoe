@@ -14,6 +14,7 @@
     if (self = [super init]) {
         self.figure = Empty ;
         self.index = 0 ;
+        _score = 0 ;
     }
     return self ;
 }
@@ -23,6 +24,10 @@
     move.index = index ;
     move.figure = figure ;
     return move ;
+}
+
+- (id)copyWithZone:(nullable NSZone *)zone {
+    return [Move moveWithIndex:self.index andFigure:self.figure] ;
 }
 
 - (NSString *)description {
@@ -45,6 +50,18 @@
     }
     
     return @" " ;
+}
+
+- (TranspDict *)transpDict {
+    return @{TD_ACTION : TD_MOVE, TD_INDEX : [NSNumber numberWithLong:self.index]} ;
+}
+
++ (TranspDict *)transpDictReset {
+    return @{TD_ACTION : TD_RESET} ;
+}
+
++ (TranspDict *)transpDictStop {
+    return @{TD_ACTION : TD_RESET} ;
 }
 
 @end

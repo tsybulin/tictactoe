@@ -7,16 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SingleGame.h"
-#import "WatchGame.h"
-#import "PairGame.h"
 #import "NetworkGame.h"
+#import "Game.h"
+#import "Player.h"
 
-@interface GameController : UIViewController
+@interface GameController : UIViewController <GameDelegate>
 
-@property (nonatomic, strong) SingleGame *singleGame ;
-@property (nonatomic, strong) WatchGame *watchGame ;
-@property (nonatomic, strong) PairGame *pairGame ;
+@property (nonatomic, strong) Game *game ;
+
 @property (nonatomic, strong) NetworkGame *networkGame ;
 
 @end

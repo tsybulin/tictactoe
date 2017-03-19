@@ -9,6 +9,13 @@
 #import "Game.h"
 #import "Figure.h"
 
+@interface Game () {
+    NSMutableArray<Player *> *players ;
+    NSInteger current ;
+}
+
+@end
+
 @implementation Game
 
 - (instancetype)init {
@@ -18,7 +25,8 @@
             [Move moveWithIndex:3 andFigure:Empty], [Move moveWithIndex:4 andFigure:Empty], [Move moveWithIndex:5 andFigure:Empty],
             [Move moveWithIndex:6 andFigure:Empty], [Move moveWithIndex:7 andFigure:Empty], [Move moveWithIndex:8 andFigure:Empty]
         ] ;
-
+        players = [NSMutableArray arrayWithCapacity:0] ;
+        current = 0 ;
     }
 
     return self ;
@@ -26,9 +34,9 @@
 
 - (void)resetBoard {
     for (Move *move in self.board) {
-//        move.score = 0 ;
         move.figure = Empty ;
     }
+    current = 0 ;
 }
 
 - (Board *)availableMoves {
@@ -60,6 +68,53 @@
     }
     
     return YES ;
+}
+
+- (void)addPlayer:(Player *)player {
+    [players addObject:player] ;
+}
+
+- (Player *)currentPlayer {
+    if (players.count == 0) {
+        current = 0 ;
+        return nil ;
+    }
+    
+    if (current > players.count-1) {
+        current = 0 ;
+    }
+    
+    return [players objectAtIndex:current] ;
+}
+
+- (void)nextPlayer {
+    current++ ;
+}
+
+- (void)player:(Player *)player didMoveTo:(NSInteger)index {
+    for (Player *p in players) {
+        [p player:player didMoveTo:index] ;
+    }
+    
+    if (self.delegate) {
+        [self.delegate game:self player:player didMoveTo:index] ;
+    }
+}
+
+- (void)playerDidReset:(Player *)player {
+    for (Player *p in players) {
+        [p playerDidReset:player] ;
+    }
+    
+    if (self.delegate) {
+        [self.delegate game:self playerDidReset:player] ;
+    }
+}
+
+- (void)player:(Player *)player didChangeState:(BOOL)state {
+    if (self.delegate) {
+        [self.delegate game:self player:player didChangeState:state] ;
+    }
 }
 
 @end
