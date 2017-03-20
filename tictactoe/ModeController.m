@@ -91,8 +91,8 @@
         controller.game = game ;
         game.delegate = controller ;
         
-        // To detect Players order
-        if ([localPeerID.displayName compare:[peers firstObject].displayName] == NSOrderedAscending) {
+//        // To detect Players order
+//        if ([localPeerID.displayName compare:[peers firstObject].displayName] == NSOrderedAscending) {
             Player *cross = [[LocalPlayer alloc] initWithFigure:Cross name:localPeerID.displayName] ;
             cross.game = game ;
             [game addPlayer:cross] ;
@@ -103,18 +103,18 @@
             zero.peers = peers ;
             session.delegate = zero ;
             [game addPlayer:zero] ;
-        } else {
-            NetworkPlayer *zero = [[NetworkPlayer alloc] initWithFigure:Zero name:[peers firstObject].displayName] ;
-            zero.game = game ;
-            zero.session = session ;
-            zero.peers = peers ;
-            session.delegate = zero ;
-            [game addPlayer:zero] ;
-
-            Player *cross = [[LocalPlayer alloc] initWithFigure:Cross name:localPeerID.displayName] ;
-            cross.game = game ;
-            [game addPlayer:cross] ;
-        }
+//        } else {
+//            NetworkPlayer *zero = [[NetworkPlayer alloc] initWithFigure:Zero name:[peers firstObject].displayName] ;
+//            zero.game = game ;
+//            zero.session = session ;
+//            zero.peers = peers ;
+//            session.delegate = zero ;
+//            [game addPlayer:zero] ;
+//
+//            Player *cross = [[LocalPlayer alloc] initWithFigure:Cross name:localPeerID.displayName] ;
+//            cross.game = game ;
+//            [game addPlayer:cross] ;
+//        }
 
         return ;
     }

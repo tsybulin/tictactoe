@@ -12,6 +12,7 @@
 @interface Game () {
     NSMutableArray<Player *> *players ;
     NSInteger current ;
+    BOOL firstMove ;
 }
 
 @end
@@ -27,6 +28,7 @@
         ] ;
         players = [NSMutableArray arrayWithCapacity:0] ;
         current = 0 ;
+        firstMove = YES ;
     }
 
     return self ;
@@ -93,6 +95,15 @@
 
 - (void)player:(Player *)player didMoveTo:(NSInteger)index {
     [self.board objectAtIndex:index].figure = player.figure ;
+    
+    if (firstMove) {
+        firstMove = NO ;
+        
+        if (player != players.firstObject) {
+            [players removeObject:player] ;
+            [players insertObject:player atIndex:0] ;
+        }
+    }
 
     for (Player *p in players) {
         if (p != player) {

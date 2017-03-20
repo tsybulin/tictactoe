@@ -50,14 +50,13 @@
     } else if ([@"PhoneGame" isEqualToString:segueIdentifier]) {
         Game *game = [[Game alloc] init] ;
         
-        Player *phone = [[PhonePlayer alloc] initWithFigure:Zero name:@"Phone"] ;
-        phone.game = game ;
-        [game addPlayer:phone] ;
-
         Player *human = [[LocalPlayer alloc] initWithFigure:Cross name:@"You"] ;
         human.game = game ;
         [game addPlayer:human] ;
-        
+
+        Player *phone = [[PhonePlayer alloc] initWithFigure:Zero name:@"Phone"] ;
+        phone.game = game ;
+        [game addPlayer:phone] ;
 
         return @{@"segue" : @"PhoneGame", @"game" : game} ;
     }
