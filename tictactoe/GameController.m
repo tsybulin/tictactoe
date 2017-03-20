@@ -11,6 +11,8 @@
 @interface GameController () {
     NSArray<UIButton *> *cells ;
     NSArray<UIImage *> *imgs ;
+    
+    UIWindow *secondWindow ;
 }
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navItem;
@@ -18,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIView *viBanner;
 @property (weak, nonatomic) IBOutlet UILabel *lblBanner;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btnReset;
+@property (strong, nonatomic) IBOutlet UIView *secondView;
 
 @end
 
@@ -53,11 +56,23 @@
     self.svButtons.userInteractionEnabled = [self.game currentPlayer].interactive ;
     self.btnReset.enabled = [self.game currentPlayer].interactive ;
     self.navItem.title = [self.game currentPlayer].name ;
+    
+    [self setupSecondScreen] ;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [self.game player:[self.game currentPlayer] didChangeState:NO] ;
     [super viewWillDisappear:animated] ;
+    
+    if (secondWindow) {
+        secondWindow.hidden = YES ;
+        secondWindow = nil ;
+    }
+
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter] ;
+    [center removeObserver:self name:UIScreenDidConnectNotification object:nil] ;
+    [center removeObserver:self name:UIScreenDidDisconnectNotification object:nil] ;
+    [center removeObserver:self name:UIScreenModeDidChangeNotification object:nil] ;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,6 +85,17 @@
         
         [button setBackgroundImage:[imgs objectAtIndex:move.figure] forState:UIControlStateNormal] ;
         button.userInteractionEnabled = move.figure == Empty ;
+    }
+    
+    [self updateSecondScreen] ;
+}
+
+- (void)updateSecondScreen {
+    if (secondWindow) {
+        for (Move *move in self.game.board) {
+            UIButton *button = [self.secondView viewWithTag:move.index+1] ;
+            [button setBackgroundImage:[imgs objectAtIndex:move.figure] forState:UIControlStateNormal] ;
+        }
     }
 }
 
@@ -158,5 +184,60 @@
         }) ;
     }
 }
+
+#pragma mark - Screen Mirror
+
+- (void)setupSecondScreen {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter] ;
+    [center addObserver:self selector:@selector(screenDidConnect:) name:UIScreenDidConnectNotification object:nil] ;
+    [center addObserver:self selector:@selector(screenDidDisconnect:) name:UIScreenDidDisconnectNotification object:nil] ;
+    [center addObserver:self selector:@selector(screenModeDidChange:) name:UIScreenModeDidChangeNotification object:nil] ;
+    
+    NSArray *connectedScreens = [UIScreen screens] ;
+
+    if ([connectedScreens count] > 1) {
+        UIScreen *mainScreen = [UIScreen mainScreen] ;
+        for (UIScreen *aScreen in connectedScreens) {
+            if (aScreen != mainScreen) {
+                // We've found an external screen !
+                [self setupMirroringForScreen:aScreen] ;
+                break ;
+            }
+        }
+    }
+}
+
+- (void)disableMirroringOnCurrentScreen {
+    if (secondWindow) {
+        secondWindow.hidden = YES ;
+        secondWindow = nil ;
+    }
+}
+
+- (void)screenDidConnect:(NSNotification *)notification {
+    [self setupMirroringForScreen:notification.object] ;
+}
+
+- (void)screenDidDisconnect:(NSNotification *)notification {
+    [self disableMirroringOnCurrentScreen] ;
+}
+
+- (void)screenModeDidChange:(NSNotification *)notification {
+    [self disableMirroringOnCurrentScreen];
+    [self setupMirroringForScreen:[notification object]] ;
+}
+
+- (void)setupMirroringForScreen:(UIScreen *)externalScreen {
+    CGRect screenBounds = externalScreen.bounds ;
+    secondWindow = [[UIWindow alloc] initWithFrame:screenBounds] ;
+    secondWindow.screen = externalScreen ;
+    secondWindow.hidden = NO ;
+    
+    self.secondView.frame = screenBounds ;
+    [secondWindow addSubview:self.secondView] ;
+
+    [self updateSecondScreen] ;
+}
+
 
 @end
